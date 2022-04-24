@@ -39,23 +39,21 @@ class JirankuAppBar extends StatelessWidget implements PreferredSizeWidget{
   }
 
   Size get preferredSize => Size.fromHeight(50.0);
-  final String _title;
   final HomeViewmodel _viewmodel;
   //final IconButton _button;
 
-  const JirankuAppBar({ title,viewmodel})
-      :_title = title,
-      _viewmodel = viewmodel;
+  const JirankuAppBar({ viewmodel})
+      : _viewmodel = viewmodel;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       
-      backgroundColor: Colors.grey[200],
-          title: Text('Jiranku', style: TextStyle(fontFamily: "Kaushan", color: Colors.blueGrey[800], fontSize: 25.0, fontWeight: FontWeight.w500),),
+      backgroundColor: Colors.white,
+          title: Text('Profile', style: TextStyle(fontFamily: "Vol", color: Colors.blueGrey[800], fontSize: 25.0, fontWeight: FontWeight.w500),),
       actions: [IconButton(
           icon: Icon(
-            Icons.menu,
+            Icons.edit,
             color: Colors.blueGrey[800],
           ),
           onPressed: () =>  _settingModalBottomSheet(context)),]

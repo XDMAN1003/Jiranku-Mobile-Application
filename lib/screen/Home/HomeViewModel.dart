@@ -6,7 +6,7 @@ import '../viewmodel.dart';
 class HomeViewmodel extends Viewmodel {
   UserViewmodel get _userViewmodel => dependency();
   User? get user => _userViewmodel.user;
-  int _selectedIndex = 1;
+  int _selectedIndex = 2;
 
   get selectedIndex => _selectedIndex;
   set selectedIndex(value) {

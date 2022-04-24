@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fyp_project_v2/app/route.dart';
 import 'package:fyp_project_v2/models/user.dart';
-import 'package:fyp_project_v2/screen/Home/widget/AuthoritiesBody.dart';
-import 'package:fyp_project_v2/screen/Home/widget/HomeBody.dart';
-import 'package:fyp_project_v2/screen/Home/widget/JirankuAppBar.dart';
+import 'package:fyp_project_v2/screen/Home/widget/Authority/AuthoritiesAppBar.dart';
+import 'package:fyp_project_v2/screen/Home/widget/Authority/AuthoritiesBody.dart';
+import 'package:fyp_project_v2/screen/Home/widget/Home/HomeBody.dart';
+import 'package:fyp_project_v2/screen/Home/widget/Home/JirankuAppBar.dart';
 import 'package:fyp_project_v2/screen/FrequentUsedWidget/ParagraphText.dart';
 import 'package:fyp_project_v2/screen/Home/HomeViewModel.dart';
 import 'package:fyp_project_v2/screen/Home/widget/SplashScreen.dart';
@@ -33,25 +34,37 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           builder: (context, mainViewmodel, progressBuilder) {
             //print(mainViewmodel.isUserSignedIn);
-             final _newsViewmodel =
-                  NewsHomeScreenViewModel(homeViewmodel: mainViewmodel);
+            final _newsViewmodel =
+                NewsHomeScreenViewModel(homeViewmodel: mainViewmodel);
             if (mainViewmodel.isUserSignedIn) {
               dynamic AppBarList = [
-                JirankuAppBar(title: "Jiranku", viewmodel: mainViewmodel),
-
+                AuthoritiesAppBar(),
+                AuthoritiesAppBar(),
+                JirankuAppBar(viewmodel: mainViewmodel),
+                AuthoritiesAppBar(),
+                AuthoritiesAppBar(),
+                
               ];
               dynamic childrenBody = [
-                  AuthoritiesBody(),
-                  HomeBody(
+                AuthoritiesBody(),
+                HomeBody(
+                  viewmodel: _newsViewmodel,
+                ),
+                HomeBody(
+                  viewmodel: _newsViewmodel,
+                ),
+                HomeBody(
+                  viewmodel: _newsViewmodel,
+                ),
+                HomeBody(
                   viewmodel: _newsViewmodel,
                 ),
               ];
               return Scaffold(
-                appBar:
-                    JirankuAppBar(title: "Jiranku", viewmodel: mainViewmodel),
+                appBar: AppBarList[mainViewmodel.selectedIndex],
                 body: childrenBody[mainViewmodel.selectedIndex],
                 bottomNavigationBar: BottomNavigationBar(
-                  backgroundColor: Colors.grey[200],
+                  backgroundColor: Colors.white,
                   unselectedItemColor: Colors.grey[500],
                   selectedItemColor: Colors.black,
                   showSelectedLabels: false,
@@ -63,30 +76,30 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: "Authorities",
                       //backgroundColor: Colors.pink,
                     ),
-                    // BottomNavigationBarItem(
-                    //   icon: Icon(Icons.article_outlined),
-                    //   activeIcon: Icon(Icons.article),
-                    //   label: "News",
-                    //   //backgroundColor: Colors.red,
-                    // ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.article_outlined),
+                      activeIcon: Icon(Icons.article),
+                      label: "News",
+                      //backgroundColor: Colors.red,
+                    ),
                     BottomNavigationBarItem(
                       activeIcon: Icon(Icons.home),
                       icon: Icon(Icons.home_outlined),
                       label: "Home",
                       //backgroundColor: Colors.green,
                     ),
-                    // BottomNavigationBarItem(
-                    //   activeIcon: Icon(Icons.local_mall),
-                    //   icon: Icon(Icons.local_mall_outlined),
-                    //   label: "Product",
-                    //   //backgroundColor: Colors.purple,
-                    // ),
-                    // BottomNavigationBarItem(
-                    //   activeIcon: Icon(Icons.account_circle),
-                    //   icon: Icon(Icons.account_circle_outlined),
-                    //   label: "Profile",
-                    //   //backgroundColor: Colors.pink,
-                    // ),
+                    BottomNavigationBarItem(
+                      activeIcon: Icon(Icons.local_mall),
+                      icon: Icon(Icons.local_mall_outlined),
+                      label: "Product",
+                      //backgroundColor: Colors.purple,
+                    ),
+                    BottomNavigationBarItem(
+                      activeIcon: Icon(Icons.account_circle),
+                      icon: Icon(Icons.account_circle_outlined),
+                      label: "Profile",
+                      //backgroundColor: Colors.pink,
+                    ),
                   ],
                   currentIndex: mainViewmodel.selectedIndex,
                   onTap: (index) => mainViewmodel.selectedIndex = index,
