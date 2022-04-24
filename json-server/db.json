@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "address": "68, Jalan Jasmin 1",
+    "email": "xiaoyingkong@gmail.com",
+    "fullName": "Kong Xiao Ying",
+    "gender": "F",
+    "identity": "A",
+    "invitationCode": "HA",
+    "password": "123",
+    "preference": "YYYYYY" ,
+    "races": "Chinese",
+    "username": "XYing",
+    "userID": "123" 
+    }
+  ]
+}
