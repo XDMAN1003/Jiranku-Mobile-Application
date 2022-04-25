@@ -8,7 +8,7 @@ const String registerScreen = '/register';
 
 const String home = '/home';
 
-const String appForm = '/appForm';
+const String editProfile = '/editProfile';
 
 const String eventForm = '/eventForm';
 

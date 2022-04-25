@@ -3,14 +3,19 @@ import 'package:fyp_project_v2/app/route.dart';
 import 'package:fyp_project_v2/models/user.dart';
 import 'package:fyp_project_v2/screen/Home/widget/Authority/AuthoritiesAppBar.dart';
 import 'package:fyp_project_v2/screen/Home/widget/Authority/AuthoritiesBody.dart';
-import 'package:fyp_project_v2/screen/Home/widget/Home/HomeBody.dart';
+
 import 'package:fyp_project_v2/screen/Home/widget/Home/JirankuAppBar.dart';
 import 'package:fyp_project_v2/screen/FrequentUsedWidget/ParagraphText.dart';
 import 'package:fyp_project_v2/screen/Home/HomeViewModel.dart';
-import 'package:fyp_project_v2/screen/Home/widget/SplashScreen.dart';
+
+import 'package:fyp_project_v2/screen/Home/widget/Profile/ProfileBody.dart';
+
 
 import '../view.dart';
 import 'NewsHomeViewModel.dart';
+import 'homie/Home/HomeBody.dart';
+import 'homie/Profile/ProfileAppBar.dart';
+import 'homie/SplashScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -42,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 AuthoritiesAppBar(),
                 JirankuAppBar(viewmodel: mainViewmodel),
                 AuthoritiesAppBar(),
-                AuthoritiesAppBar(),
+                ProfileAppBar(viewmodel: mainViewmodel,),
                 
               ];
               dynamic childrenBody = [
@@ -56,9 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 HomeBody(
                   viewmodel: _newsViewmodel,
                 ),
-                HomeBody(
-                  viewmodel: _newsViewmodel,
-                ),
+                ProfileBody(viewmodel: mainViewmodel,),
               ];
               return Scaffold(
                 appBar: AppBarList[mainViewmodel.selectedIndex],

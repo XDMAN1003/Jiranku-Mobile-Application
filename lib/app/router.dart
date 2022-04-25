@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fyp_project_v2/screen/EditProfile/EditProfile.dart';
 import 'package:fyp_project_v2/screen/Home/HomeScreen.dart';
 import 'package:fyp_project_v2/screen/Home/NewsHomeViewModel.dart';
 import 'package:fyp_project_v2/screen/Login/LoginScreen.dart';
@@ -17,10 +18,12 @@ Route<dynamic>? createRoute(settings) {
       return MaterialPageRoute(
         builder: (context) => LoginScreen(),
       );
-     case registerScreen:
+    case registerScreen:
       return MaterialPageRoute(
         builder: (context) => RegisterScreen(),
       );
+    case editProfile:
+      return MaterialPageRoute(builder: (context) => EditProfile());
     // case eventList:
     //   return MaterialPageRoute(
     //     builder: (context) => EventList(),

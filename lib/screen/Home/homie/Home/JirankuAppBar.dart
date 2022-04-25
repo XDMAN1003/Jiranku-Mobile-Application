@@ -48,13 +48,13 @@ class JirankuAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      
+      elevation: 0.0,
       backgroundColor: Colors.white,
-          title: Text('Profile', style: TextStyle(fontFamily: "Vol", color: Colors.blueGrey[800], fontSize: 25.0, fontWeight: FontWeight.w500),),
+          title: Text('Jiranku', style: TextStyle(fontFamily: "Lobster", color: Colors.black, fontSize: 25.0, fontWeight: FontWeight.w500),),
       actions: [IconButton(
           icon: Icon(
-            Icons.edit,
-            color: Colors.blueGrey[800],
+            Icons.menu,
+            color: Colors.black,
           ),
           onPressed: () =>  _settingModalBottomSheet(context)),]
     );

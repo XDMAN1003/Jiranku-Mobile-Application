@@ -7,9 +7,9 @@ class AuthoritiesAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      
+      elevation: 0.0,
       backgroundColor: Colors.white,
-          title: Text('Authorites', style: TextStyle(fontFamily: "Vol",color: Colors.blueGrey[800], fontSize: 25.0, fontWeight: FontWeight.w500),),
+          title: Text('Authorites', style: TextStyle(fontFamily: "Acme",color: Colors.black, fontSize: 25.0, fontWeight: FontWeight.w500),),
     );
   }
 

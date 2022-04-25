@@ -17,6 +17,7 @@ class HomeBody extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       padding: EdgeInsets.fromLTRB(20.0, 0, 15.0, 0),
+      color: Colors.white,
       child: View(
           progressBuilder: (context, viewmodel) => Container(
                 height: MediaQuery.of(context).size.height,
