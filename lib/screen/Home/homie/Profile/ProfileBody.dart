@@ -56,10 +56,10 @@ class ProfileBody extends StatelessWidget {
             onPress: () => _showComingSoon(context),
           ),
           ProfileMenuBar(
-            image: "delivery.png",
-            title: "Purchase History",
-            desc: "Click to check delivery time",
-            length: 23,
+            image: "invitation.png",
+            title: "Invite New User",
+            desc: "Click to invite new users",
+            length: 0,
             onPress: () => _showComingSoon(context),
           ),
           SizedBox(
@@ -74,6 +74,7 @@ class ProfileBody extends StatelessWidget {
       ),
     );
   }
+  
 
   dynamic _showComingSoon(context, {type, link}) => showDialog<String>(
         context: context,
