@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fyp_project_v2/screen/EditProfile/widget/EditProfileAppBar.dart';
+import 'package:fyp_project_v2/screen/EditProfile/widget/EditProfileBody.dart';
 
 class EditProfile extends StatelessWidget {
   const EditProfile({ Key? key }) : super(key: key);
@@ -6,20 +8,8 @@ class EditProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-                title : Text('Edit Profile'),
-                centerTitle : true,
-                backgroundColor: Colors.deepOrange[300],
-                elevation: 0.0,
-                
-                leading: IconButton(
-                  icon: Icon(Icons.arrow_back, color: Colors.white,),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-      body: Text("Edit Profile"),
+      appBar: EditProfileAppBar(),
+      body: EditProfileBody(),
     );
   }
 }

@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:fyp_project_v2/app/route.dart';
 import 'package:fyp_project_v2/models/user.dart';
-import 'package:fyp_project_v2/screen/Home/widget/Authority/AuthoritiesAppBar.dart';
-import 'package:fyp_project_v2/screen/Home/widget/Authority/AuthoritiesBody.dart';
-
-import 'package:fyp_project_v2/screen/Home/widget/Home/JirankuAppBar.dart';
 import 'package:fyp_project_v2/screen/FrequentUsedWidget/ParagraphText.dart';
 import 'package:fyp_project_v2/screen/Home/HomeViewModel.dart';
-
-import 'package:fyp_project_v2/screen/Home/widget/Profile/ProfileBody.dart';
-
-
 import '../view.dart';
 import 'NewsHomeViewModel.dart';
+import 'homie/Authority/AuthoritiesAppBar.dart';
+import 'homie/Authority/AuthoritiesBody.dart';
 import 'homie/Home/HomeBody.dart';
+import 'homie/Home/JirankuAppBar.dart';
+import 'homie/News/NewAppBar.dart';
 import 'homie/Profile/ProfileAppBar.dart';
+import 'homie/Profile/ProfileBody.dart';
 import 'homie/SplashScreen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -44,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
             if (mainViewmodel.isUserSignedIn) {
               dynamic AppBarList = [
                 AuthoritiesAppBar(),
-                AuthoritiesAppBar(),
+                NewsAppBar(),
                 JirankuAppBar(viewmodel: mainViewmodel),
                 AuthoritiesAppBar(),
                 ProfileAppBar(viewmodel: mainViewmodel,),

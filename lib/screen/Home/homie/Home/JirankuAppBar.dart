@@ -16,9 +16,12 @@ class JirankuAppBar extends StatelessWidget implements PreferredSizeWidget{
             child: new Wrap(
               children: <Widget>[
                 new ListTile(
-                    leading: new Icon(Icons.music_note),
-                    title: new Text('Music'),
-                    onTap: () => {}),
+                    leading: new Icon(Icons.account_circle_outlined),
+                    title: new Text('Edit Profile'),
+                    onTap: () {
+                      Navigator.pop(context);
+                     Navigator.pushNamed(context, '/editProfile');
+                    }),
                 new ListTile(
                   leading: new Icon(Icons.videocam),
                   title: new Text('Video'),

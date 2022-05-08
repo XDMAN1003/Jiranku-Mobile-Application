@@ -28,6 +28,10 @@ class AuthServiceMock implements AuthService {
     //     orElse: () => null as User);
     // return _user;
   }
+  Future<User?> updateUser({required User user}) async {
+    return User.copy(user);
+  }
+  
 }
 
 final List<User> _users = <User>[

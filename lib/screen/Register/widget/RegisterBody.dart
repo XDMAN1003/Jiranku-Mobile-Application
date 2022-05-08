@@ -110,7 +110,7 @@ class RegisterBody extends StatelessWidget {
                         ),
                         obscureText: !viewmodel.showPassword,
                         validator: (val) => !(viewmodel.password == val)
-                            ? "${viewmodel.password}"
+                            ? "Password and Confirm Password not match"
                             : null,
                         onChanged: (value) => viewmodel.confirmPassword = value,
                       ),
@@ -120,7 +120,7 @@ class RegisterBody extends StatelessWidget {
                       FormTextField(
                         label: "Full Name",
                         initialValue: "Lim Bao Ren",
-                        onChange: (val) => viewmodel.fullName == val,
+                        onChange: (val) => viewmodel.fullName = val,
                         validator: (val) =>
                             (val.length < 1) ? "Enter a valid full name" : null,
                       ),

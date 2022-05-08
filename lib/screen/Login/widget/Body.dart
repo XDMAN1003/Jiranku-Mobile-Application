@@ -126,25 +126,25 @@ class Body extends StatelessWidget {
                   SizedBox(
                     height: 5.0,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ParagraphText(
-                          title: "Don't have an account?", size: 15.0),
-                      TextButton(
-                          onPressed: () async {
-                            dynamic regUser = await Navigator.pushNamed(
-                                  context, registerScreen);
-                            if(regUser != null) Navigator.pop(context, regUser);
-                          }
-                             ,
-                          child: ParagraphText(
-                            title: "Sign Up",
-                            size: 15.0,
-                          )),
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   crossAxisAlignment: CrossAxisAlignment.center,
+                  //   children: [
+                  //     ParagraphText(
+                  //         title: "Don't have an account?", size: 15.0),
+                  //     TextButton(
+                  //         onPressed: () async {
+                  //           dynamic regUser = await Navigator.pushNamed(
+                  //                 context, registerScreen);
+                  //           if(regUser != null) Navigator.pop(context, regUser);
+                  //         }
+                  //            ,
+                  //         child: ParagraphText(
+                  //           title: "Sign Up",
+                  //           size: 15.0,
+                  //         )),
+                  //   ],
+                  // ),
                   TextButton(
                       onPressed: () => _onFakeLogin(context, viewmodel),
                       child: Text("Auto Login")),

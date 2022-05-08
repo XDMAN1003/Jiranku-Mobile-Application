@@ -33,6 +33,17 @@ class AuthServiceRest implements AuthService{
         .toList();
   }
 
+  Future<User?> updateUser({required User user}) async {
+    try {
+      final json = await rest.patch('user/${user.userID}',data: user);
+      final _result = User.fromJson(json);
+      return _result;
+    } catch (e) {
+      return null;
+    }
+  }
+  
+
   // Future<String?> getUserById({id}) async {
   //   try {
   //     var json = await rest.get('user/$id');
