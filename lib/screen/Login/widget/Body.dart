@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fyp_project_v2/app/route.dart';
 import 'package:fyp_project_v2/models/user.dart';
 import 'package:fyp_project_v2/screen/FrequentUsedWidget/FormTextField.dart';
 import 'package:fyp_project_v2/screen/FrequentUsedWidget/LoginRegisterFormHeader.dart';

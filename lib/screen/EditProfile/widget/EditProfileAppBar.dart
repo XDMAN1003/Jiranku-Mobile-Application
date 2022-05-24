@@ -8,7 +8,7 @@ class EditProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
        leading: IconButton(
-                  icon: Icon(Icons.arrow_back, color: Colors.black,),
+                  icon: Icon(Icons.chevron_left, color: Colors.black,),
                   onPressed: () {
                     Navigator.pop(context);
                   },

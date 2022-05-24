@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fyp_project_v2/screen/EditProfile/EditProfile.dart';
 import 'package:fyp_project_v2/screen/Home/HomeScreen.dart';
-import 'package:fyp_project_v2/screen/Home/NewsHomeViewModel.dart';
 import 'package:fyp_project_v2/screen/Login/LoginScreen.dart';
+import 'package:fyp_project_v2/screen/PostNews/PostNews.dart';
 import 'package:fyp_project_v2/screen/Register/RegisterScreen.dart';
+import 'package:fyp_project_v2/screen/VerifyNewsList/VerifyNewsList.dart';
 import 'route.dart';
 
 Route<dynamic>? createRoute(settings) {
@@ -24,6 +25,12 @@ Route<dynamic>? createRoute(settings) {
       );
     case editProfile:
       return MaterialPageRoute(builder: (context) => EditProfile());
+    case addNews:
+      return MaterialPageRoute(builder: (context) => PostNews());
+    case verifyNewsList:
+      return MaterialPageRoute(builder: (context) => VerifyNewsList());
+    // case verifyNews:
+    //    return EventDetail.route(data: settings.arguments as EventInfo);
     // case eventList:
     //   return MaterialPageRoute(
     //     builder: (context) => EventList(),

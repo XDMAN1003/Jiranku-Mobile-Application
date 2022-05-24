@@ -15,6 +15,7 @@ class NewsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    print("Update the News");
     return Container(
       padding: EdgeInsets.fromLTRB(20.0, 0, 15.0, 0),
       child: View(
@@ -58,6 +59,7 @@ class NewsBody extends StatelessWidget {
                               height: 10.0,
                             ),
                             PostFooter(
+                                viewmodel: viewmodel,
                                 news: _news,
                                 difference: _difference,
                                 formattedDate: formattedDate),

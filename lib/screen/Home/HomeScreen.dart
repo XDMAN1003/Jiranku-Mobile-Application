@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fyp_project_v2/app/route.dart';
 import 'package:fyp_project_v2/models/user.dart';
 import 'package:fyp_project_v2/screen/FrequentUsedWidget/ParagraphText.dart';
 import 'package:fyp_project_v2/screen/Home/HomeViewModel.dart';
@@ -41,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
             if (mainViewmodel.isUserSignedIn) {
               dynamic AppBarList = [
                 AuthoritiesAppBar(),
-                NewsAppBar(),
+                NewsAppBar(viewmodel: mainViewmodel),
                 JirankuAppBar(viewmodel: mainViewmodel),
                 AuthoritiesAppBar(),
                 ProfileAppBar(viewmodel: mainViewmodel,),

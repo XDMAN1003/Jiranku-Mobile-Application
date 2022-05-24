@@ -1,7 +1,7 @@
 class News {
   String _postID;
   String _postAuthorID;
-  String _title;
+  String _location;
   String _description;
   String _status;
   String _photos;
@@ -14,8 +14,8 @@ class News {
   get postAuthorID => _postAuthorID;
   set postAuthorID(value) => _postAuthorID = value;
 
-  get title => _title;
-  set title(value) => _title = value;
+  get location => _location;
+  set location(value) => _location = value;
 
   get description => _description;
   set description(value) => _description = value;
@@ -35,7 +35,7 @@ class News {
   News({  
   String postID= "",
   String postAuthorID= "",
-  String title= "",
+  String location= "",
   String description= "",
   String status= "",
   String photos= "",
@@ -44,7 +44,7 @@ class News {
   }):
    _postID= postID,
   _postAuthorID= postAuthorID,
-  _title= title,
+  _location= location,
   _description= description,
   _status= status,
   _photos= photos,
@@ -54,7 +54,7 @@ class News {
   News.copy(News from): this(
     postID: from.postID,
     postAuthorID: from.postAuthorID,
-    title: from.title,
+    location: from.location,
     description: from.description,
     status: from.status,
     photos: from.photos,
@@ -66,7 +66,7 @@ class News {
   this(
     postID: json["postID"] ?? "",
     postAuthorID: json["postAuthorID"] ?? "",
-    title: json["title"] ?? "",
+    location: json["location"] ?? "",
     description: json["description"] ?? "",
     status: json["status"] ?? "",
     photos: json["photos"] ?? "",
@@ -77,7 +77,7 @@ class News {
   Map<String, dynamic> toJson() => {
     'postID': postID,
     'postAuthorID': postAuthorID,
-    'title': title,
+    'location': location,
     'description': description,
     'status': status,
     'photos': photos,

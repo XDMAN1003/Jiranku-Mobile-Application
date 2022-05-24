@@ -59,6 +59,7 @@ class HomeBody extends StatelessWidget {
                               height: 10.0,
                             ),
                             PostFooter(
+                                viewmodel: viewmodel,
                                 news: _news,
                                 difference: _difference,
                                 formattedDate: formattedDate),

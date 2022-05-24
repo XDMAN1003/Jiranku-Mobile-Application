@@ -17,6 +17,38 @@ class NewsHomeScreenViewModel extends Viewmodel {
 
   NewService get service => dependency();
   AuthService get userService => dependency();
+  bool _react1 = true;
+  bool _react2 = true;
+  bool _react3 = true;
+  bool _react4 = true;
+
+  set react1(val){
+    turnBusy();
+    _react1 = val;
+    turnIdle();
+  }
+  get react1 => _react1;
+
+  set react2(val){
+    turnBusy();
+    _react2 = val;
+    turnIdle();
+  }
+  get react2 => _react2;
+
+  set react3(val){
+    turnBusy();
+    _react3 = val;
+    turnIdle();
+  }
+  get react3 => _react3;
+
+  set react4(val){
+    turnBusy();
+    _react4 = val;
+    turnIdle();
+  }
+  get react4 => _react4;
 
   List<User>? _usersList;
   get usersList => _usersList;

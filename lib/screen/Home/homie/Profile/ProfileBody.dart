@@ -60,7 +60,7 @@ class ProfileBody extends StatelessWidget {
             title: "Invite New User",
             desc: "Click to invite new users",
             length: 0,
-            onPress: () => _showComingSoon(context),
+            onPress: () => _share2Invite(context),
           ),
           SizedBox(
             height: 20.0,
@@ -74,7 +74,137 @@ class ProfileBody extends StatelessWidget {
       ),
     );
   }
-  
+
+  dynamic _share2Invite(context) => showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => Dialog(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: EdgeInsets.all(10.0),
+                margin: EdgeInsets.zero,
+                width: 400.0,
+                child: Column(
+                  children: [
+                    Text(
+                      "Invite New User",
+                      style: TextStyle(
+                          color: Colors.grey[800],
+                          fontFamily: "Acme",
+                          fontSize: 30.0),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(10.0),
+                      decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      child: Text(
+                        "I am on Jiranku Application as @${_viewmodel.user!.username}. Install the app to know more about Sungai Petani.",
+                        style: TextStyle(
+                            color: Colors.grey[800],
+                            fontFamily: "Acme",
+                            fontSize: 20.0),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Text(
+                      "Invite via",
+                      style: TextStyle(
+                          color: Colors.grey[600],
+                          fontFamily: "Acme",
+                          fontSize: 15.0),
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                            onPressed: () => ScaffoldMessenger.of(context)
+                                .showSnackBar(SnackBar(
+                                    duration: const Duration(milliseconds: 500),
+                                    content: Text(
+                                        'Redirecting... Send Invitation via SMS'))),
+                            icon: Image.asset("asset/profile/chat.png")),
+                        IconButton(
+                            onPressed: () => ScaffoldMessenger.of(context)
+                                .showSnackBar(SnackBar(
+                                    duration: const Duration(milliseconds: 500),
+                                    content: Text(
+                                        'Copy to clipboard successfully'))),
+                            icon: Image.asset("asset/profile/clipboard.png")),
+                        IconButton(
+                            onPressed: () => ScaffoldMessenger.of(context)
+                                .showSnackBar(SnackBar(
+                                    duration: const Duration(milliseconds: 500),
+                                    content: Text(
+                                        'Redirecting... Send Invitation via Facebook'))),
+                            icon: Image.asset("asset/profile/facebook.png")),
+                        IconButton(
+                            onPressed: () => ScaffoldMessenger.of(context)
+                                .showSnackBar(SnackBar(
+                                    duration: const Duration(milliseconds: 500),
+                                    content: Text(
+                                        'Redirecting... Send Invitation via Instagram'))),
+                            icon: Image.asset("asset/profile/instagram.png")),
+                        IconButton(
+                            onPressed: () => ScaffoldMessenger.of(context)
+                                .showSnackBar(SnackBar(
+                                    duration: const Duration(milliseconds: 500),
+                                    content: Text(
+                                        'Redirecting... Send Invitation via WhatsApp'))),
+                            icon: Image.asset("asset/profile/whatsapp.png")),
+                        IconButton(
+                            onPressed: () => ScaffoldMessenger.of(context)
+                                .showSnackBar(SnackBar(
+                                    duration: const Duration(milliseconds: 500),
+                                    content: Text(
+                                        'Redirecting... Send Invitation via Wechat'))),
+                            icon: Image.asset("asset/profile/wechat.png")),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.zero,
+                margin: EdgeInsets.zero,
+                color: Colors.red,
+                width: double.infinity,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.all(10.0),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.disabled_by_default,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Text(
+                        "CLOSE",
+                        style: TextStyle(
+                            fontFamily: "Acme",
+                            fontSize: 20.0,
+                            color: Colors.white),
+                      )
+                    ],
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
 
   dynamic _showComingSoon(context, {type, link}) => showDialog<String>(
         context: context,
@@ -112,7 +242,9 @@ class ProfileBody extends StatelessWidget {
                         Icons.cancel_presentation,
                         color: Colors.white,
                       ),
-                      SizedBox(width: 10.0,),
+                      SizedBox(
+                        width: 10.0,
+                      ),
                       Text(
                         "CLOSE",
                         style: TextStyle(

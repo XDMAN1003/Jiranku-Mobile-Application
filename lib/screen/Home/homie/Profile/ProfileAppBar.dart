@@ -5,8 +5,9 @@ import '../../HomeViewModel.dart';
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   //const ProfileAppBar({ Key? key }) : super(key: key);
   ProfileAppBar({viewmodel}) : _viewmodel = viewmodel;
-  Size get preferredSize => Size.fromHeight(50.0);
   final HomeViewmodel _viewmodel;
+  Size get preferredSize => Size.fromHeight(50.0);
+  //final HomeViewmodel _viewmodel;
 
   @override
   Widget build(BuildContext context) {

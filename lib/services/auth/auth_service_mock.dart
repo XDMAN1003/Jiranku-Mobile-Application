@@ -1,7 +1,10 @@
+import 'package:uuid/uuid.dart';
+
 import '../../models/user.dart';
 import 'auth_service.dart';
 
 class AuthServiceMock implements AuthService {
+
   Future<User?> login({required String email, required String password}) async {
     // User _user = _users.firstWhere(
     //     (user) => user.email == email && user.password == password,
@@ -29,12 +32,33 @@ class AuthServiceMock implements AuthService {
     // return _user;
   }
   Future<User?> updateUser({required User user}) async {
-    return User.copy(user);
+    // int index = _news_list.indexWhere((element) =>element.postID == news.postID );
+    // _news_list[index].description = news.description;
+    // _news_list[index].location = news.location;
+    // _news_list[index].photos = news.photos;
+    // _news_list[index].postAuthorID = news.postAuthorID;
+    // _news_list[index].postID = news.postID;
+    // //_news_list[index].publishDateTime = news.publishDateTime;
+    // _news_list[index].status = news.status;
+    // _news_list[index].reference = news.reference;    
+    // _news_list.forEach((element)=> print("${element.postID} => ${element.status}"));
+    // return _news;
+    int index = _users.indexWhere((element) => element.userID == user.userID);
+    _users[index].address = user.address;
+    _users[index].email = user.email;
+    _users[index].fullName = user.fullName;
+    _users[index].gender = user.gender;
+    _users[index].identity = user.identity;
+    _users[index].invitationCode = user.invitationCode;
+    _users[index].password = user.password;
+    _users[index].preference = user.preference;
+    _users[index].races = user.races;
+    _users[index].username = user.username;
+    return user;
   }
   
 }
-
-final List<User> _users = <User>[
+List<User> _users = <User>[
   User(
       address: "Sungai Petani",
       email: "xdman1221@gmail.com",
@@ -58,5 +82,5 @@ final List<User> _users = <User>[
       preference: "TFTFTFTF",
       races: "Chinese",
       username: "XYing",
-      userID: "Hello456"),
+      userID: Uuid().v1.toString()),
 ];

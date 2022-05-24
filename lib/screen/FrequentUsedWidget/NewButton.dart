@@ -17,7 +17,7 @@ class NewButton extends StatelessWidget {
       onPressed: _onPress,
       color: Color(0xFF3ABFC9),
       elevation: 0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: ParagraphText(title: _label.toUpperCase(),size: 20.0, color: Color(0XFFFFFFF0),)
     );
   }

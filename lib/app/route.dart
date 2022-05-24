@@ -10,6 +10,12 @@ const String home = '/home';
 
 const String editProfile = '/editProfile';
 
+const String addNews = "/addNews";
+
+const String verifyNewsList = "/verifyNewsList";
+
+const String verifyNews = "/verifyNews";
+
 const String eventForm = '/eventForm';
 
 const String appList = '/appList';

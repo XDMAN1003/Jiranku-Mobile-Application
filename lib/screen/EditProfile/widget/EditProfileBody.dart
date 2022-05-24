@@ -34,6 +34,7 @@ class EditProfileBody extends StatelessWidget {
     if (_user != null) {
       Navigator.pop(context);
       Navigator.pop(context);
+      Navigator.popAndPushNamed(context, "/home");
     }
   }
 
@@ -302,7 +303,7 @@ Expanded _buildCheckBox(viewmodel, label, index) {
       flex: 1,
       child: Row(
         children: [
-          Text(user_preference),
+          //Text(user_preference),
           Checkbox(
             value:
                 (user_preference == "T") ,
