@@ -16,12 +16,4 @@ const String verifyNewsList = "/verifyNewsList";
 
 const String verifyNews = "/verifyNews";
 
-const String eventForm = '/eventForm';
-
-const String appList = '/appList';
-
-const String eventList = '/eventList';
-
-const String appDetail = '/appDetail';
-
-const String eventDetail = '/eventDetail';
+const String addProduct = '/addProduct';

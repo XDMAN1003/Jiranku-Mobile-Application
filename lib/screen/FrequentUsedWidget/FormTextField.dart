@@ -17,20 +17,15 @@ class FormTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        TextFormField(
-          initialValue: _initialValue,
-          decoration: InputDecoration(
-            labelText: '$_label',
-            border: OutlineInputBorder(),
-          ),
-          onChanged: _onChange,
-          obscureText: _obscureText,
-          validator: _validator,
-        ),
-      ],
+    return TextFormField(
+      initialValue: _initialValue,
+      decoration: InputDecoration(
+        labelText: '$_label',
+        border: OutlineInputBorder(),
+      ),
+      onChanged: _onChange,
+      obscureText: _obscureText,
+      validator: _validator,
     );
   }
 }

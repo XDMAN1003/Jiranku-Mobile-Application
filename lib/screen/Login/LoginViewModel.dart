@@ -55,8 +55,10 @@ class LoginViewmodel extends Viewmodel {
     turnBusy();
     email = "xdman1221@gmail.com";
     password = "123456";
+    //print("Email:$email | Password:$password");
     //final User _user = await _service.authenticate(login: username, password: password);
     final User? _user = await _service.login(email: email, password: password);
+    //print(_user!.userID);
     if (_user == null) _showErrorMessage = true;
     turnIdle();
     return _user;

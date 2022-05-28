@@ -14,7 +14,6 @@ class Body extends StatelessWidget {
 
   void _onLogin(BuildContext context, LoginViewmodel viewmodel) async {
     final User? _user = await viewmodel.authenticate();
-    print(_user);
     if (_user != null) {
       Navigator.pop(context, _user);
     } else {
@@ -35,6 +34,8 @@ class Body extends StatelessWidget {
   }
 
   void _onFakeLogin(BuildContext context, LoginViewmodel viewmodel) async {
+    //print("Fake Email: ${viewmodel.email}");
+    //print("Fake Password: ${viewmodel.password}");
     final User? _user = await viewmodel.authenticate1();
     print(_user);
     if (_user != null) Navigator.pop(context, _user);

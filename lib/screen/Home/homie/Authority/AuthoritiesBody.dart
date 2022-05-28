@@ -13,16 +13,33 @@ class AuthoritiesBody extends StatelessWidget {
                 new ListTile(
                     leading: new Icon(Icons.phone),
                     title: new Text('Call'),
-                    onTap: () => _showAlertBox(context, type: "HP", link: phoneNumber)),
+                    onTap: () {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          duration: const Duration(milliseconds: 1500),
+                          content: Text(
+                              "Redirecting to Phone. Call ${phoneNumber}")));
+                    }),
                 new ListTile(
                     leading: new Icon(Icons.place),
                     title: new Text('Location'),
-                    onTap: () => _showAlertBox(context, type: "GPS", link: address)),
+                    onTap: () {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          duration: const Duration(milliseconds: 500),
+                          content: Text(
+                              "Redirecting to Map. Location found: ${address}")));
+                    }),
                 new ListTile(
-                  leading: new Icon(Icons.facebook_rounded),
-                  title: new Text('Facebook'),
-                  onTap: () => _showAlertBox(context, type: "FB", link: fbURL),
-                ),
+                    leading: new Icon(Icons.facebook_rounded),
+                    title: new Text('Facebook'),
+                    onTap: () {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          duration: const Duration(milliseconds: 500),
+                          content:
+                              Text("Redirecting to Facebook. Call ${fbURL}")));
+                    }),
               ],
             ),
           );
@@ -107,50 +124,102 @@ class AuthoritiesBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        GovCard(context, title: "CRSM 双溪大年志工团", phone: "Hotline: 019-4097771", shortAddress: "Taman Pekan Baru", link: "@CRSM.SP", address:"No.23, Jln Zamrud 2, Tmn Pekan Baru", image: "CRSM.jpg" ),
-        GovCard(context, title: "PPKSSP 大年治安队", phone: "Hotline: 010-3818931", shortAddress: "Pekan Lama", link: "@PKS.SungaiPetani", address:"LOT 71107, Kampung Tebu, Pekan Lama", image:"PKS.jpg"),
-        GovCard(context, title: "MPSPK", phone: "Hotline: 04-429 666", shortAddress: "Menara MPSPK", link: "@CRSM.SP", address:"Menara MPSPK, Jalan Patani", image: "MPSPK.png"),
-        GovCard(context, title: "Hosp Sultan Abd Halim", phone: "Hotline: 04-4457333", shortAddress: "Bandar Amanjaya", link: "@FKPHSAH", address:"225, Bandar Amanjaya", image: "hosp.png"),
-        GovCard(context, title: "LHDN Sg Petani", phone: "Hotline: 04-4456000", shortAddress: "Bandar Amanjaya", link: "@LHDN-Sg-Petani", address:"225, Bandar Amanjaya", image: "LHDN.png"),
-        GovCard(context, title: "UTC Sg Petani", phone: "Hotline: 04-4216391", shortAddress: "Jln Kuala Ketil", link: "@utcsungaipetani", address:"Jalan Kuala Ketil", image: "UTC.jpg"),
-        GovCard(context, title: "JPJ Sg Petani", phone: "Hotline: 04-421 8104", shortAddress: "Jln Kuala Ketil", link: "@JPJ-Sg-Petani", address:"Jalan Kuala Ketil", image: "jpj.png"),
-        GovCard(context, title: "PPD Sg Petani", phone: "Hotline: 04-421 2370", shortAddress: "Jalan Badlishah", link: "@PPD-Sg-Petani", address:"Jalan Badlishah", image: "ppd.jpg"),
+        GovCard(context,
+            title: "CRSM 双溪大年志工团",
+            phone: "Hotline: 019-4097771",
+            shortAddress: "Taman Pekan Baru",
+            link: "@CRSM.SP",
+            address: "No.23, Jln Zamrud 2, Tmn Pekan Baru",
+            image: "CRSM.jpg"),
+        GovCard(context,
+            title: "PPKSSP 大年治安队",
+            phone: "Hotline: 010-3818931",
+            shortAddress: "Pekan Lama",
+            link: "@PKS.SungaiPetani",
+            address: "LOT 71107, Kampung Tebu, Pekan Lama",
+            image: "PKS.jpg"),
+        GovCard(context,
+            title: "MPSPK",
+            phone: "Hotline: 04-429 666",
+            shortAddress: "Menara MPSPK",
+            link: "@CRSM.SP",
+            address: "Menara MPSPK, Jalan Patani",
+            image: "MPSPK.png"),
+        GovCard(context,
+            title: "Hosp Sultan Abd Halim",
+            phone: "Hotline: 04-4457333",
+            shortAddress: "Bandar Amanjaya",
+            link: "@FKPHSAH",
+            address: "225, Bandar Amanjaya",
+            image: "hosp.png"),
+        GovCard(context,
+            title: "LHDN Sg Petani",
+            phone: "Hotline: 04-4456000",
+            shortAddress: "Bandar Amanjaya",
+            link: "@LHDN-Sg-Petani",
+            address: "225, Bandar Amanjaya",
+            image: "LHDN.png"),
+        GovCard(context,
+            title: "UTC Sg Petani",
+            phone: "Hotline: 04-4216391",
+            shortAddress: "Jln Kuala Ketil",
+            link: "@utcsungaipetani",
+            address: "Jalan Kuala Ketil",
+            image: "UTC.jpg"),
+        GovCard(context,
+            title: "JPJ Sg Petani",
+            phone: "Hotline: 04-421 8104",
+            shortAddress: "Jln Kuala Ketil",
+            link: "@JPJ-Sg-Petani",
+            address: "Jalan Kuala Ketil",
+            image: "jpj.png"),
+        GovCard(context,
+            title: "PPD Sg Petani",
+            phone: "Hotline: 04-421 2370",
+            shortAddress: "Jalan Badlishah",
+            link: "@PPD-Sg-Petani",
+            address: "Jalan Badlishah",
+            image: "ppd.jpg"),
       ],
     );
   }
 
-  Card GovCard(BuildContext context, {title, phone, address, shortAddress, link, image}) {
+  Card GovCard(BuildContext context,
+      {title, phone, address, shortAddress, link, image}) {
     return Card(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
-          child: ListTile(
-            leading: CircleAvatar(
-              backgroundImage: AssetImage("asset/gov/$image"),
-              backgroundColor: Colors.white,
-            ),
-            title: Text(
-              '$title',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-            ),
-            subtitle: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "$address",
-                  style: TextStyle(fontSize: 12.0),
-                ),
-                SizedBox(
-                  height: 2,
-                ),
-                Text("$phone", style: TextStyle(fontSize: 12.0))
-              ],
-            ),
-            trailing: IconButton(
-                onPressed: () => _settingModalBottomSheet(context, phoneNumber: "$phone", address: "$shortAddress", fbURL: "$link"),
-                icon: Icon(Icons.more_vert_rounded)),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+        child: ListTile(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage("asset/gov/$image"),
+            backgroundColor: Colors.white,
           ),
+          title: Text(
+            '$title',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+          ),
+          subtitle: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "$address",
+                style: TextStyle(fontSize: 12.0),
+              ),
+              SizedBox(
+                height: 2,
+              ),
+              Text("$phone", style: TextStyle(fontSize: 12.0))
+            ],
+          ),
+          trailing: IconButton(
+              onPressed: () => _settingModalBottomSheet(context,
+                  phoneNumber: "$phone",
+                  address: "$shortAddress",
+                  fbURL: "$link"),
+              icon: Icon(Icons.more_vert_rounded)),
         ),
-      );
+      ),
+    );
   }
 }

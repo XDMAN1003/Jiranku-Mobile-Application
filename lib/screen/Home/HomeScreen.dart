@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fyp_project_v2/models/user.dart';
 import 'package:fyp_project_v2/screen/FrequentUsedWidget/ParagraphText.dart';
 import 'package:fyp_project_v2/screen/Home/HomeViewModel.dart';
+import 'package:fyp_project_v2/screen/Home/MixHomeViewModel.dart';
+import 'package:fyp_project_v2/screen/Home/ProductHomeViewModel.dart';
 import '../view.dart';
 import 'NewsHomeViewModel.dart';
 import 'homie/Authority/AuthoritiesAppBar.dart';
@@ -9,6 +11,9 @@ import 'homie/Authority/AuthoritiesBody.dart';
 import 'homie/Home/HomeBody.dart';
 import 'homie/Home/JirankuAppBar.dart';
 import 'homie/News/NewAppBar.dart';
+import 'homie/News/NewsBody.dart';
+import 'homie/Product/ProductAppBar.dart';
+import 'homie/Product/ProductBody.dart';
 import 'homie/Profile/ProfileAppBar.dart';
 import 'homie/Profile/ProfileBody.dart';
 import 'homie/SplashScreen.dart';
@@ -37,25 +42,28 @@ class _HomeScreenState extends State<HomeScreen> {
             //print(mainViewmodel.isUserSignedIn);
             final _newsViewmodel =
                 NewsHomeScreenViewModel(homeViewmodel: mainViewmodel);
+            final _productViewmodel = ProductHomeScreenViewModel(homeViewmodel: mainViewmodel);
+            final _mixViewmodel = MixHomeScreenViewModel(homeViewmodel: mainViewmodel);
+            print("Items (Home)=> ${_mixViewmodel.items}");
+
             if (mainViewmodel.isUserSignedIn) {
               dynamic AppBarList = [
                 AuthoritiesAppBar(),
                 NewsAppBar(viewmodel: mainViewmodel),
                 JirankuAppBar(viewmodel: mainViewmodel),
-                AuthoritiesAppBar(),
+                ProductAppBar(),
                 ProfileAppBar(viewmodel: mainViewmodel,),
-                
               ];
               dynamic childrenBody = [
                 AuthoritiesBody(),
-                HomeBody(
+                NewsBody(
                   viewmodel: _newsViewmodel,
                 ),
                 HomeBody(
-                  viewmodel: _newsViewmodel,
+                  viewmodel: _mixViewmodel,
                 ),
-                HomeBody(
-                  viewmodel: _newsViewmodel,
+                ProductBody(
+                  viewmodel: _productViewmodel,
                 ),
                 ProfileBody(viewmodel: mainViewmodel,),
               ];

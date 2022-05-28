@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
 
   void _onPressLoginButton(context) async {
     final _user = await Navigator.pushNamed(context, '/login');
-
+    //print("User (Splash): ${_user}");
     if (_user != null) {
       _viewmodel.user = (_user as User?)!;
     }

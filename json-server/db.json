@@ -1,17 +1,67 @@
 {
-  "users": [
-    {
-      "address": "68, Jalan Jasmin 1",
-    "email": "xiaoyingkong@gmail.com",
-    "fullName": "Kong Xiao Ying",
-    "gender": "F",
-    "identity": "A",
-    "invitationCode": "HA",
-    "password": "123",
-    "preference": "YYYYYY" ,
+  "user": [{
+    "address": "Taman Jasmin",
+    "email": "xying1023@gmail.com",
+    "fullName": "Xiao Ying",
+    "gender": "Female",
+    "identity": "Admin",
+    "invitationCode": "6263cdd8-33a8-4a74-a9ac-fea307da387d",
+    "password": "123456",
+    "preference": "TTTTTTTT" ,
     "races": "Chinese",
-    "username": "XYing",
-    "userID": "123" 
+    "username": "Ying💕",
+    "userID": "98bfd227-18d8-4f18-bcef-dae6f94ffc95" 
+  },
+  {
+    "address": "Cinta Sayang Resort Villa",
+      "email": "anya-forger@gmail.com",
+      "fullName": "Anya Forger",
+      "gender": "Female",
+      "identity": "SP Resident",
+      "invitationCode": "6263cdd8-33a8-4a74-a9ac-fea307da387d",
+      "password": "123456",
+      "preference": "TFTFTFTF",
+      "races": "Others",
+      "username": "Anya💕",
+      "userID": "94eb65c1-1fd7-4e2d-aae5-ce5432681a9e"
+  },
+  {
+    "address": "Cinta Sayang Resort Home",
+      "email": "just-in@gmail.com",
+      "fullName": "Justin Lee",
+      "gender": "Male",
+      "identity": "SP Resident",
+      "invitationCode": "6263cdd8-33a8-4a74-a9ac-fea307da387d",
+      "password": "123456",
+      "preference": "TFTFTFTF",
+      "races": "Malay",
+      "username": "Just-In",
+      "userID": "6263cdd8-33a8-4a74-a9ac-fea307da387d"
+  },
+  {
+     "address": "Lagenda Height",
+      "email": "xdman1221@gmail.com",
+      "fullName": "Bao Ren",
+      "gender": "Male",
+      "identity": "Admin",
+      "invitationCode": "6263cdd8-33a8-4a74-a9ac-fea307da387d",
+      "password": "123456",
+      "preference": "TFTFTFTF",
+      "races": "Malay",
+      "username": "XDMAN",
+      "userID": "3a82ac64-340b-4a2d-8c39-4957f0d401cf"
+  }
+  ],
+  "news": [
+    {
+    "postID": "b590e929-fcb0-41fb-b291-e69c9b7496d3",
+    "postAuthorID": "94eb65c1-1fd7-4e2d-aae5-ce5432681a9e",
+    "location": "Taman Intan",
+    "description": "I can always talk about your best qualities with my friends but remain quiet when you’re around.",
+    "status": "Pending",
+    "photos": "Secret.png",
+    "reference": "Metro Harian",
+    "publishDateTime": "20-6-2021"
     }
   ]
 }

@@ -4,6 +4,7 @@ import 'package:fyp_project_v2/screen/EditProfile/EditProfile.dart';
 import 'package:fyp_project_v2/screen/Home/HomeScreen.dart';
 import 'package:fyp_project_v2/screen/Login/LoginScreen.dart';
 import 'package:fyp_project_v2/screen/PostNews/PostNews.dart';
+import 'package:fyp_project_v2/screen/PostProduct/PostProduct.dart';
 import 'package:fyp_project_v2/screen/Register/RegisterScreen.dart';
 import 'package:fyp_project_v2/screen/VerifyNewsList/VerifyNewsList.dart';
 import 'route.dart';
@@ -29,6 +30,8 @@ Route<dynamic>? createRoute(settings) {
       return MaterialPageRoute(builder: (context) => PostNews());
     case verifyNewsList:
       return MaterialPageRoute(builder: (context) => VerifyNewsList());
+    case addProduct:
+      return MaterialPageRoute(builder: (context) => PostProduct());
     // case verifyNews:
     //    return EventDetail.route(data: settings.arguments as EventInfo);
     // case eventList:

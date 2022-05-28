@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:fyp_project_v2/models/news.dart';
 import 'package:fyp_project_v2/models/user.dart';
-import 'package:fyp_project_v2/screen/FrequentUsedWidget/PostFooter.dart';
-import 'package:fyp_project_v2/screen/FrequentUsedWidget/PostHeader.dart';
+import 'package:fyp_project_v2/screen/FrequentUsedWidget/NewsPost.dart';
+import 'package:fyp_project_v2/screen/VerifyNewsDetails/VerifyNewsDetails.dart';
 import 'package:intl/intl.dart';
-
 import '../../../view.dart';
 import '../../NewsHomeViewModel.dart';
 
 class NewsBody extends StatelessWidget {
-  NewsBody({viewmodel}): _viewmodel = viewmodel;
+  NewsBody({viewmodel}) : _viewmodel = viewmodel;
   final NewsHomeScreenViewModel _viewmodel;
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    print("Update the News");
+    //print("Update the News");
     return Container(
-      padding: EdgeInsets.fromLTRB(20.0, 0, 15.0, 0),
+      padding: EdgeInsets.fromLTRB(20.0, 0, 15.0,20.0),
       child: View(
           progressBuilder: (context, viewmodel) => Container(
                 height: MediaQuery.of(context).size.height,
@@ -25,63 +24,28 @@ class NewsBody extends StatelessWidget {
                 child: Center(child: CircularProgressIndicator()),
               ),
           builder: (context, viewmodel, progressBuilder) {
-            return ListView.separated(
-                itemBuilder: (context, index) {
-                  //viewmodel.getPostAuthor(viewmodel.news[index].postAuthorID);
-                  User _user =
-                      viewmodel.getAuthor(viewmodel.news[index].postAuthorID);
-                  News _news = viewmodel.news[index];
-                  final _difference =
-                      DateTime.now().difference(_news.publishDateTime).inDays;
-                  String formattedDate = DateFormat('dd-MM-yyyy kk:mm')
-                      .format(_news.publishDateTime);
-                  return Column(
-                    children: [
-                      SizedBox(
-                        height: 15.0,
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 20.0),
+              child: ListView.separated(
+                  itemBuilder: (context, index) {
+                    //viewmodel.getPostAuthor(viewmodel.news[index].postAuthorID);
+                    User _user =
+                        viewmodel.getAuthor(viewmodel.news[index].postAuthorID);
+                    News _news = viewmodel.news[index];
+                    final _difference =
+                        DateTime.now().difference(_news.publishDateTime).inDays;
+                    String formattedDate = DateFormat('dd-MM-yyyy kk:mm')
+                        .format(_news.publishDateTime);
+                    return NewsPost(user: _user, news: _news, screenHeight: screenHeight, viewmodel: _viewmodel, difference: _difference, index: index,);
+                  },
+                  separatorBuilder: (context, index) => Divider(
+                        color: Colors.blueGrey,
                       ),
-                      SingleChildScrollView(
-                        child: 
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            PostHeader(user: _user, news: _news),
-                            Container(
-                              width: double.infinity,
-                              height: 1 * screenHeight / 2,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: AssetImage(
-                                          "asset/photos/" + _news.photos))),
-                            ),
-                            SizedBox(
-                              height: 10.0,
-                            ),
-                            PostFooter(
-                                viewmodel: viewmodel,
-                                news: _news,
-                                difference: _difference,
-                                formattedDate: formattedDate),
-                            (index == viewmodel.news.length - 1)
-                                ? SizedBox(
-                                    height: 20.0,
-                                  )
-                                : SizedBox(
-                                    height: 0.0,
-                                  )
-                          ],
-                        ),
-                      ),
-                    ],
-                  );
-                },
-                separatorBuilder: (context, index) => Divider(
-                      color: Colors.blueGrey,
-                    ),
-                itemCount: viewmodel.news.length);
+                  itemCount: viewmodel.news.length),
+            );
           },
           viewmodel: _viewmodel),
     );
   }
 }
+

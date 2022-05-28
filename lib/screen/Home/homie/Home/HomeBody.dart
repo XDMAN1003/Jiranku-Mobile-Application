@@ -1,22 +1,26 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:fyp_project_v2/models/news.dart';
 import 'package:fyp_project_v2/models/user.dart';
-import 'package:fyp_project_v2/screen/FrequentUsedWidget/PostFooter.dart';
-import 'package:fyp_project_v2/screen/FrequentUsedWidget/PostHeader.dart';
-import 'package:fyp_project_v2/screen/Home/NewsHomeViewModel.dart';
+import 'package:fyp_project_v2/screen/FrequentUsedWidget/NewsPost.dart';
+import 'package:fyp_project_v2/screen/FrequentUsedWidget/ProductPost.dart';
 import 'package:fyp_project_v2/screen/view.dart';
 import 'package:intl/intl.dart';
 
+import '../../MixHomeViewModel.dart';
+
 class HomeBody extends StatelessWidget {
   //const HomeBody({ Key? key }) : super(key: key);
-  final NewsHomeScreenViewModel _viewmodel;
+  final MixHomeScreenViewModel _viewmodel;
   HomeBody({viewmodel}) : _viewmodel = viewmodel;
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    print("Items:${_viewmodel.items}");
     return Container(
-      padding: EdgeInsets.fromLTRB(20.0, 0, 15.0, 0),
+      padding: EdgeInsets.fromLTRB(20.0, 0, 15.0, 20),
       color: Colors.white,
       child: View(
           progressBuilder: (context, viewmodel) => Container(
@@ -25,67 +29,46 @@ class HomeBody extends StatelessWidget {
                 child: Center(child: CircularProgressIndicator()),
               ),
           builder: (context, viewmodel, progressBuilder) {
+            //List<dynamic> items = viewmodel.items;
             return ListView.separated(
                 itemBuilder: (context, index) {
+                
                   //viewmodel.getPostAuthor(viewmodel.news[index].postAuthorID);
-                  User _user =
-                      viewmodel.getAuthor(viewmodel.news[index].postAuthorID);
-                  News _news = viewmodel.news[index];
-                  final _difference =
-                      DateTime.now().difference(_news.publishDateTime).inDays;
+                  final _hotSelling = Random().nextBool();
+                  //print(items[index].runtimeType);
+                  User _user = viewmodel.getAuthor(viewmodel.items[index].postAuthorID);
+                  // News _news = viewmodel.news[index];
+
+                  final _difference = DateTime.now()
+                      .difference(viewmodel.items[index].publishDateTime)
+                      .inDays;
                   String formattedDate = DateFormat('dd-MM-yyyy kk:mm')
-                      .format(_news.publishDateTime);
-                  return Column(
-                    children: [
-                      SizedBox(
-                        height: 15.0,
-                      ),
-                      SingleChildScrollView(
-                        child: 
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            PostHeader(user: _user, news: _news),
-                            Container(
-                              width: double.infinity,
-                              height: 1 * screenHeight / 2,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: AssetImage(
-                                          "asset/photos/" + _news.photos))),
-                            ),
-                            SizedBox(
-                              height: 10.0,
-                            ),
-                            PostFooter(
-                                viewmodel: viewmodel,
-                                news: _news,
-                                difference: _difference,
-                                formattedDate: formattedDate),
-                            (index == viewmodel.news.length - 1)
-                                ? SizedBox(
-                                    height: 20.0,
-                                  )
-                                : SizedBox(
-                                    height: 0.0,
-                                  )
-                          ],
-                        ),
-                      ),
-                    ],
-                  );
+                      .format(viewmodel.items[index].publishDateTime);
+                  
+                  return (viewmodel.items[index].runtimeType == News)
+                      ? NewsPost(
+                          user: _user,
+                          news: viewmodel.items[index],
+                          screenHeight: screenHeight,
+                          viewmodel: viewmodel,
+                          difference: _difference,
+                          index: index,
+                        )
+                      : ProductPost(
+                          index: index,
+                          user: _user,
+                          screenHeight: screenHeight,
+                          product: viewmodel.items[index],
+                          viewmodel: viewmodel,
+                          hotSelling: _hotSelling,
+                          difference: _difference);
                 },
                 separatorBuilder: (context, index) => Divider(
                       color: Colors.blueGrey,
                     ),
-                itemCount: viewmodel.news.length);
+                itemCount: viewmodel.items.length);
           },
           viewmodel: _viewmodel),
     );
   }
 }
-
-
-
-

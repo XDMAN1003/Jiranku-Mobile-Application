@@ -18,8 +18,10 @@ class AuthServiceRest implements AuthService{
 
   Future<User?> login({required String email, required String password}) async {
     try {
-      var json = await rest.get('user/$email/$password');
-      final _result = User.fromJson(json);
+      var json = await rest.get('user?email=$email&password=$password');
+      print(json);
+      final _result = User.fromJson(json[0]);
+      print(_result);
       return _result;
     } catch(e) {
       return null;

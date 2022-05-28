@@ -60,6 +60,18 @@ class AuthServiceMock implements AuthService {
 }
 List<User> _users = <User>[
   User(
+      address: "Bandar Laguna Merbok",
+      email: "abc@gmail.com",
+      fullName: "Anya Forger",
+      gender: "Female",
+      identity: "SP Resident",
+      invitationCode: "Hello123",
+      password: "123456",
+      preference: "TTTTFFFF",
+      races: "Malay",
+      username: "10ve23iserable",
+      userID: Uuid().v1.toString()),
+  User(
       address: "Sungai Petani",
       email: "xdman1221@gmail.com",
       fullName: "Lim Bao Ren",
