@@ -71,7 +71,7 @@ class News {
     status: json["status"] ?? "",
     photos: json["photos"] ?? "",
     reference: json["reference"] ?? "",
-    publishDateTime: json["publishDateTime "] ?? "",
+    publishDateTime: (json["reference"] == "") ? DateTime.parse(json["publishDateTime"]) : DateTime.now(),
   );
 
   Map<String, dynamic> toJson() => {
@@ -82,7 +82,7 @@ class News {
     'status': status,
     'photos': photos,
     'reference': reference,
-    'publishDateTime': publishDateTime ,
+    'publishDateTime': publishDateTime,
   };
 
 }
