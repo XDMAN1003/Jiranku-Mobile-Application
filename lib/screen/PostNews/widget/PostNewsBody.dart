@@ -171,7 +171,7 @@ class PostNewsBody extends StatelessWidget {
                             onPressed: () async {
                               if (viewmodel.description != "" &&
                                   viewmodel.photos != "") {
-                                viewmodel.postID = Uuid().v1();
+                                viewmodel.id = Uuid().v1();
                                 dynamic result = await viewmodel.postNews();
                                 if (result != null) {
                                   Navigator.pop(context);

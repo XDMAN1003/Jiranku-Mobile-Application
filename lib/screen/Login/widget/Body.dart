@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fyp_project_v2/app/route.dart';
 import 'package:fyp_project_v2/models/user.dart';
 import 'package:fyp_project_v2/screen/FrequentUsedWidget/FormTextField.dart';
 import 'package:fyp_project_v2/screen/FrequentUsedWidget/LoginRegisterFormHeader.dart';
@@ -126,28 +127,29 @@ class Body extends StatelessWidget {
                   SizedBox(
                     height: 5.0,
                   ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   crossAxisAlignment: CrossAxisAlignment.center,
-                  //   children: [
-                  //     ParagraphText(
-                  //         title: "Don't have an account?", size: 15.0),
-                  //     TextButton(
-                  //         onPressed: () async {
-                  //           dynamic regUser = await Navigator.pushNamed(
-                  //                 context, registerScreen);
-                  //           if(regUser != null) Navigator.pop(context, regUser);
-                  //         }
-                  //            ,
-                  //         child: ParagraphText(
-                  //           title: "Sign Up",
-                  //           size: 15.0,
-                  //         )),
-                  //   ],
-                  // ),
-                  TextButton(
-                      onPressed: () => _onFakeLogin(context, viewmodel),
-                      child: Text("Auto Login")),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ParagraphText(
+                          title: "Don't have an account?", size: 15.0),
+                      TextButton(
+                          onPressed: () async {
+                            dynamic regUser = await Navigator.pushNamed(
+                                  context, registerScreen);
+                            if(regUser != null) Navigator.pop(context, regUser);
+                          }
+                             ,
+                          child: ParagraphText(
+                            title: "Sign Up",
+                            size: 15.0,
+                            color: Colors.blue,
+                          )),
+                    ],
+                  ),
+                  // TextButton(
+                  //     onPressed: () => _onFakeLogin(context, viewmodel),
+                  //     child: Text("Auto Login")),
                 ],
               ),
             ),

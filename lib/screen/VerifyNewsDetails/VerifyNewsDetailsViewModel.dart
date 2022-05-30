@@ -10,10 +10,11 @@ class VerifyNewsDetailsViewModel extends Viewmodel{
   get user => userViewmodel.user;
   News _news = News();
 
-  get postID => _news.postID;
-  set postID(value) {
+
+  get id => _news.id;
+  set id(value) {
     turnBusy();
-    _news.postID = value;
+    _news.id = value;
     turnIdle();
   }
 
@@ -59,6 +60,13 @@ class VerifyNewsDetailsViewModel extends Viewmodel{
     turnIdle();
   }
 
+  
+  get publishDateTime => _news.publishDateTime;
+  set publishDateTime(value) {
+    turnBusy();
+    _news.publishDateTime = value;
+    turnIdle();
+  }
    Future<News?> updateNews() async {
     turnBusy();
     final News? _result = await _service.updateNewsStatus(_news);

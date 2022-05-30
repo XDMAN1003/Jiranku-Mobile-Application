@@ -152,43 +152,43 @@ class RegisterBody extends StatelessWidget {
                       SizedBox(
                         height: 10.0,
                       ),
-                      Text("Field of Interest",
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w500)),
-                      SizedBox(
-                        height: 5.0,
-                      ),
+                      // Text("Field of Interest",
+                      //     style: TextStyle(
+                      //         color: Colors.grey,
+                      //         fontSize: 12.0,
+                      //         fontWeight: FontWeight.w500)),
+                      // SizedBox(
+                      //   height: 5.0,
+                      // ),
 
                       //["Local Business", "Job Seek", "COVID-19 News", "Property"].map<Text>((e) => Text(e)).toList(),
-                      Row(
-                        children: [
-                          _buildCheckBox(viewmodel, "Local Business", 0),
-                          _buildCheckBox(viewmodel, "Job Seek", 1),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          _buildCheckBox(viewmodel, "COVID-19 News", 2),
-                          _buildCheckBox(viewmodel, "Property", 3),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          _buildCheckBox(viewmodel, "Food Shop", 4),
-                          _buildCheckBox(viewmodel, "Seek for Help", 5),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          _buildCheckBox(viewmodel, "Local Business", 6),
-                          _buildCheckBox(viewmodel, "Fashion", 7),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
+                      // Row(
+                      //   children: [
+                      //     _buildCheckBox(viewmodel, "Local Business", 0),
+                      //     _buildCheckBox(viewmodel, "Job Seek", 1),
+                      //   ],
+                      // ),
+                      // Row(
+                      //   children: [
+                      //     _buildCheckBox(viewmodel, "COVID-19 News", 2),
+                      //     _buildCheckBox(viewmodel, "Property", 3),
+                      //   ],
+                      // ),
+                      // Row(
+                      //   children: [
+                      //     _buildCheckBox(viewmodel, "Food Shop", 4),
+                      //     _buildCheckBox(viewmodel, "Seek for Help", 5),
+                      //   ],
+                      // ),
+                      // Row(
+                      //   children: [
+                      //     _buildCheckBox(viewmodel, "Local Business", 6),
+                      //     _buildCheckBox(viewmodel, "Fashion", 7),
+                      //   ],
+                      // ),
+                      // SizedBox(
+                      //   height: 10.0,
+                      // ),
 
                       FormTextField(
                         label: "Address 1",
@@ -207,21 +207,27 @@ class RegisterBody extends StatelessWidget {
                           if (_formKey.currentState!.validate()) {
                             // If the form is valid, display a snackbar. In the real world,
                             // you'd often call a server or save the information in a database.
+                            // ScaffoldMessenger.of(context).showSnackBar(
+                            //   SnackBar(
+                            //       content:
+                            //           Text('''Checking for the user biodata: \n 
+                            //             Email: ${viewmodel.email}\n 
+                            //             Password: ${viewmodel.password}\n
+                            //             Confirm Password: ${viewmodel.confirmPassword}\n
+                            //             Address: ${viewmodel.address}\n
+                            //             Full Name: ${viewmodel.fullName}\n
+                            //             Username: ${viewmodel.username}\n
+                            //             Gender: ${viewmodel.gender}\n
+                            //             Races: ${viewmodel.races}\n
+                            //             Preference: ${viewmodel.preference}\n
+                            //             ''')),
+                            // );
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                   content:
-                                      Text('''Checking for the user biodata: \n 
-                                        Email: ${viewmodel.email}\n 
-                                        Password: ${viewmodel.password}\n
-                                        Confirm Password: ${viewmodel.confirmPassword}\n
-                                        Address: ${viewmodel.address}\n
-                                        Full Name: ${viewmodel.fullName}\n
-                                        Username: ${viewmodel.username}\n
-                                        Gender: ${viewmodel.gender}\n
-                                        Races: ${viewmodel.races}\n
-                                        Preference: ${viewmodel.preference}\n
-                                        ''')),
+                                      Text('Register Successfully!')),
                             );
+                            
                             final _result = await viewmodel.registration();
                             if (_result != null) {
                               Navigator.pop(context, _result);
@@ -240,6 +246,7 @@ class RegisterBody extends StatelessWidget {
                               child: ParagraphText(
                                 title: "Sign In",
                                 size: 15.0,
+                                color: Colors.blue,
                               )),
                         ],
                       ),

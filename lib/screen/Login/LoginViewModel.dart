@@ -58,7 +58,7 @@ class LoginViewmodel extends Viewmodel {
     //print("Email:$email | Password:$password");
     //final User _user = await _service.authenticate(login: username, password: password);
     final User? _user = await _service.login(email: email, password: password);
-    //print(_user!.userID);
+    //print(_user!.id);
     if (_user == null) _showErrorMessage = true;
     turnIdle();
     return _user;

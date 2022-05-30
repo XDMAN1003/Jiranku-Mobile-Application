@@ -53,7 +53,7 @@ class ProductHomeScreenViewModel extends Viewmodel {
   get usersList => _usersList;
   void _loadAllUsers() => update(() async => _usersList = await userService.getAllUsers());
 
-  User getAuthor(userID) => usersList.firstWhere((element) => element.userID == userID);
+  User getAuthor(id) => usersList.firstWhere((element) => element.id == id);
   
   
   List<Product>? _products;

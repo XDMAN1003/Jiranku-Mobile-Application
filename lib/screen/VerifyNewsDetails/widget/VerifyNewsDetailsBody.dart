@@ -91,12 +91,13 @@ class VerifyNewsDetailsBody extends StatelessWidget {
   }
 
   void _onUpdateNewsDetails(BuildContext context, VerifyNewsDetailsViewModel viewmodel, News news) async {
-    viewmodel.postID = news.postID;
+    viewmodel.id = news.id;
     viewmodel.postAuthorID = news.postAuthorID;
     viewmodel.photos = news.photos;
     viewmodel.description = news.description;
     viewmodel.location = news.location;
-
+    viewmodel.publishDateTime = news.publishDateTime;
+    
     final News? _news = await viewmodel.updateNews();
     if (_news != null) {
       Navigator.pop(context,_news);
@@ -160,7 +161,7 @@ class VerifyNewsDetailsBody extends StatelessWidget {
                               fontSize: 12.0,
                               color: Colors.blueGrey[500]),
                         ),
-                        Text("Uploaded by ${_news.postAuthorID}",
+                        Text("Uploaded by ${_news.postAuthorID.substring(0,8)}",
                             style: TextStyle(
                                 fontFamily: "Acme",
                                 fontSize: 12.0,

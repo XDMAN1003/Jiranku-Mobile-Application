@@ -14,16 +14,16 @@ class ProductServiceMock implements ProductService {
 
   Future<Product> updateProductStatus(Product product) async {
     int index =
-        _products.indexWhere((element) => element.postID == product.postID);
+        _products.indexWhere((element) => element.id == product.id);
     _products[index].description = product.description;
     _products[index].location = product.location;
     _products[index].photos = product.photos;
     _products[index].postAuthorID = product.postAuthorID;
-    _products[index].postID = product.postID;
+    _products[index].id = product.id;
     //_products[index].publishDateTime = product.publishDateTime;
     _products[index].contactNo = product.contactNo;
     _products
-        .forEach((element) => print("${element.postID} => ${element.contactNo}"));
+        .forEach((element) => print("${element.id} => ${element.contactNo}"));
     return product;
   }
 
@@ -43,7 +43,7 @@ class ProductServiceMock implements ProductService {
 
 List<Product> _products = [
   Product(
-    postID: Uuid().v1(),
+    id: Uuid().v1(),
     postAuthorID: "98bfd227-18d8-4f18-bcef-dae6f94ffc95",
     location: "Bandar Laguna Merbok",
     publishDateTime: DateTime(2022, 4, 1, 20, 30),
@@ -54,7 +54,7 @@ List<Product> _products = [
     description: "Ready Stock Nike Sandal Men Fashion/Nike Slipper/Selipar Adidas Lelaki Perempuan Men Women Sandals"
   ),
   Product(
-    postID: Uuid().v1(),
+    id: Uuid().v1(),
     postAuthorID: "98bfd227-18d8-4f18-bcef-dae6f94ffc95",
     location: "Taman Intan",
     publishDateTime: DateTime(2022, 5, 22, 23, 30),
@@ -65,7 +65,7 @@ List<Product> _products = [
     description: "Minimalist Lab GRACE Rolling Stones Sterling Silver Necklace, Bracelet"
   ),
   Product(
-    postID: Uuid().v1(),
+    id: Uuid().v1(),
     postAuthorID: "98bfd227-18d8-4f18-bcef-dae6f94ffc95",
     location: "Bukit Bayan",
     publishDateTime: DateTime(2022, 5, 24, 20, 00),

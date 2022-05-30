@@ -25,7 +25,7 @@ class NewsBody extends StatelessWidget {
               ),
           builder: (context, viewmodel, progressBuilder) {
             return Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 20.0),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0.0),
               child: ListView.separated(
                   itemBuilder: (context, index) {
                     //viewmodel.getPostAuthor(viewmodel.news[index].postAuthorID);
@@ -36,7 +36,7 @@ class NewsBody extends StatelessWidget {
                         DateTime.now().difference(_news.publishDateTime).inDays;
                     String formattedDate = DateFormat('dd-MM-yyyy kk:mm')
                         .format(_news.publishDateTime);
-                    return NewsPost(user: _user, news: _news, screenHeight: screenHeight, viewmodel: _viewmodel, difference: _difference, index: index,);
+                    return NewsPost(appUser: viewmodel.user, user: _user, news: _news, screenHeight: screenHeight, viewmodel: _viewmodel, difference: _difference, index: index,);
                   },
                   separatorBuilder: (context, index) => Divider(
                         color: Colors.blueGrey,

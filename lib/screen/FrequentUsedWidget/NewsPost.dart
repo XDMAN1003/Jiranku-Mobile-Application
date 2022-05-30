@@ -8,15 +8,17 @@ import 'package:intl/intl.dart';
 class NewsPost extends StatelessWidget {
   const NewsPost({
     Key? key,
+    required User appUser,
     required User user,
     required News news,
     required int index,
     required this.screenHeight,
     required dynamic viewmodel,
     required int difference,
-  }) : _index=index,_user = user, _news = news, _viewmodel = viewmodel, _difference = difference;
+  }) :_appUser = user, _index=index,_user = user, _news = news, _viewmodel = viewmodel, _difference = difference;
 
   final User _user;
+  final User _appUser;
   final int _index;
   final News _news;
   final double screenHeight;
@@ -74,7 +76,9 @@ class NewsPost extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () async {
-                          if (_user.identity == "Admin") {
+                          print("Username ${_appUser.fullName}");
+                          print("Identity: ${_appUser.identity}");
+                          if (_appUser.identity == "Admin") {
                             final result = await Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -88,6 +92,16 @@ class NewsPost extends StatelessWidget {
                               Navigator.pushNamed(
                                   context, "/verifyNewsList");
                             }
+                          }
+                          else{
+                             ScaffoldMessenger.of(context)
+                                      .showSnackBar(
+                                    SnackBar(
+                                        duration: const Duration(
+                                            milliseconds: 500),
+                                        content: Text(
+                                            "Only admin can edit!")),
+                                  );
                           }
                         },
                         icon: Icon(Icons.verified),

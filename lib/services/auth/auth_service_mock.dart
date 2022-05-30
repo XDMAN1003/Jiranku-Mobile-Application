@@ -32,18 +32,18 @@ class AuthServiceMock implements AuthService {
     // return _user;
   }
   Future<User?> updateUser({required User user}) async {
-    // int index = _news_list.indexWhere((element) =>element.postID == news.postID );
+    // int index = _news_list.indexWhere((element) =>element.id == news.id );
     // _news_list[index].description = news.description;
     // _news_list[index].location = news.location;
     // _news_list[index].photos = news.photos;
     // _news_list[index].postAuthorID = news.postAuthorID;
-    // _news_list[index].postID = news.postID;
+    // _news_list[index].id = news.id;
     // //_news_list[index].publishDateTime = news.publishDateTime;
     // _news_list[index].status = news.status;
     // _news_list[index].reference = news.reference;    
-    // _news_list.forEach((element)=> print("${element.postID} => ${element.status}"));
+    // _news_list.forEach((element)=> print("${element.id} => ${element.status}"));
     // return _news;
-    int index = _users.indexWhere((element) => element.userID == user.userID);
+    int index = _users.indexWhere((element) => element.id == user.id);
     _users[index].address = user.address;
     _users[index].email = user.email;
     _users[index].fullName = user.fullName;
@@ -70,7 +70,7 @@ List<User> _users = <User>[
       preference: "TTTTFFFF",
       races: "Malay",
       username: "10ve23iserable",
-      userID: Uuid().v1.toString()),
+      id: "3a82ac64-340b-4a2d-8c39-4957f0d401cf"),
   User(
       address: "Sungai Petani",
       email: "xdman1221@gmail.com",
@@ -82,7 +82,7 @@ List<User> _users = <User>[
       preference: "TTTTFFFF",
       races: "Malay",
       username: "XDman",
-      userID: "Hello123"),
+      id: "94eb65c1-1fd7-4e2d-aae5-ce5432681a9e"),
   User(
       address: "Ayer Tawar",
       email: "brother0330@gmail.com",
@@ -94,5 +94,5 @@ List<User> _users = <User>[
       preference: "TFTFTFTF",
       races: "Chinese",
       username: "XYing",
-      userID: Uuid().v1.toString()),
+      id: "98bfd227-18d8-4f18-bcef-dae6f94ffc95"),
 ];

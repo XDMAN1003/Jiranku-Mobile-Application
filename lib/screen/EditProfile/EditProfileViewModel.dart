@@ -9,7 +9,10 @@ class EditProfileViewModel extends Viewmodel {
   UserViewmodel get userViewmodel => dependency();
   AuthService get _service => dependency();
   User _current = User();
-  get user => userViewmodel.user;
+  get user {
+    print("MyUSER: ${userViewmodel.user.preference}");
+    return userViewmodel.user;
+  }
 
   String _confirmPassword = "";
   bool _showPassword = false;  
@@ -27,10 +30,10 @@ class EditProfileViewModel extends Viewmodel {
     _current.address = value;
     turnIdle();
   }
-  get userID => _current.userID;
-  set userID(value) {
+  get id => _current.id;
+  set id(value) {
     turnBusy();
-    _current.userID = value;
+    _current.id = value;
     turnIdle();
   }
 
@@ -91,12 +94,12 @@ get invitationCode => _current.invitationCode;
     turnIdle();
   }
 
-  get preference => user.preference;
-  set preference(value) {
-    turnBusy();
-    user.preference = value;
-    turnIdle();
-  }
+  // get preference => user.preference;
+  // set preference(value) {
+  //   turnBusy();
+  //   user.preference = value;
+  //   turnIdle();
+  // }
 
   get confirmPassword => _confirmPassword;
   set confirmPassword(value) {
@@ -107,7 +110,7 @@ get invitationCode => _current.invitationCode;
 
 
   Future<User?> updateUser() async {
-    _current.preference = user.preference;
+    _current.preference = userViewmodel.user.preference;
     userViewmodel.user = _current;
     turnBusy();
     final _result = await _service.updateUser(user: _current);

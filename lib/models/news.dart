@@ -1,5 +1,7 @@
+import 'package:intl/intl.dart';
+
 class News {
-  String _postID;
+  String _id;
   String _postAuthorID;
   String _location;
   String _description;
@@ -8,8 +10,8 @@ class News {
   String _reference;
   DateTime? _publishDateTime;
 
-  get postID => _postID;
-  set postID(value) => _postID = value;
+  get id => _id;
+  set id(value) => _id = value;
 
   get postAuthorID => _postAuthorID;
   set postAuthorID(value) => _postAuthorID = value;
@@ -33,7 +35,7 @@ class News {
   set publishDateTime(value) => _publishDateTime = value;
 
   News({  
-  String postID= "",
+  String id= "",
   String postAuthorID= "",
   String location= "",
   String description= "",
@@ -42,7 +44,7 @@ class News {
   String reference= "",
   DateTime? publishDateTime,
   }):
-   _postID= postID,
+   _id= id,
   _postAuthorID= postAuthorID,
   _location= location,
   _description= description,
@@ -52,7 +54,7 @@ class News {
   _publishDateTime = publishDateTime;
 
   News.copy(News from): this(
-    postID: from.postID,
+    id: from.id,
     postAuthorID: from.postAuthorID,
     location: from.location,
     description: from.description,
@@ -64,25 +66,25 @@ class News {
 
   News.fromJson(Map<String, dynamic> json):
   this(
-    postID: json["postID"] ?? "",
+    id: json["id"] ?? "",
     postAuthorID: json["postAuthorID"] ?? "",
     location: json["location"] ?? "",
     description: json["description"] ?? "",
     status: json["status"] ?? "",
     photos: json["photos"] ?? "",
     reference: json["reference"] ?? "",
-    publishDateTime: (json["reference"] == "") ? DateTime.parse(json["publishDateTime"]) : DateTime.now(),
+    publishDateTime: (json["publishDateTime"] != "") ? DateTime.parse(json["publishDateTime"]) : DateTime.now(),
   );
 
   Map<String, dynamic> toJson() => {
-    'postID': postID,
+    'id': id,
     'postAuthorID': postAuthorID,
     'location': location,
     'description': description,
     'status': status,
     'photos': photos,
     'reference': reference,
-    'publishDateTime': publishDateTime,
+    'publishDateTime':  DateFormat('yyyy-MM-dd kk:mm:ss').format(publishDateTime),
   };
 
 }

@@ -15,7 +15,15 @@ class NewServiceRest implements NewService{
   }
 
   Future<News> updateNewsStatus(News news) async{
-    final json = await rest.patch('news/${news.postID}',data: news);
+    print(news.description);
+    print(news.id);
+    print(news.status);
+    print(news.reference);
+    print(news.photos);
+    print(news.postAuthorID);
+    print(news.publishDateTime);
+    print(news.location);
+    final json = await rest.put('news/${news.id}',data: news);
     return News.fromJson(json);
   }
 
@@ -32,6 +40,6 @@ class NewServiceRest implements NewService{
   }
 
   Future<void> deleteNews(News news) async{
-    await rest.delete('news/${news.postID}');
+    await rest.delete('news/${news.id}');
   }
 }

@@ -8,7 +8,11 @@ class UserViewmodel extends Viewmodel {
   User? _user;
 
   get user => _user;
-  set user(value) => _user = value;
+  set user(value) {
+    turnBusy();
+    _user = value;
+    turnIdle();
+  }
   bool get isUserSignedIn => _user != null;
 
   void authenticate(User user) async => _user =

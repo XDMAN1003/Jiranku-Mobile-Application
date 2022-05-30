@@ -32,11 +32,11 @@ class HomeBody extends StatelessWidget {
             //List<dynamic> items = viewmodel.items;
             return ListView.separated(
                 itemBuilder: (context, index) {
-                
                   //viewmodel.getPostAuthor(viewmodel.news[index].postAuthorID);
                   final _hotSelling = Random().nextBool();
                   //print(items[index].runtimeType);
-                  User _user = viewmodel.getAuthor(viewmodel.items[index].postAuthorID);
+                  User _user =
+                      viewmodel.getAuthor(viewmodel.items[index].postAuthorID);
                   // News _news = viewmodel.news[index];
 
                   final _difference = DateTime.now()
@@ -44,9 +44,10 @@ class HomeBody extends StatelessWidget {
                       .inDays;
                   String formattedDate = DateFormat('dd-MM-yyyy kk:mm')
                       .format(viewmodel.items[index].publishDateTime);
-                  
+
                   return (viewmodel.items[index].runtimeType == News)
                       ? NewsPost(
+                          appUser: viewmodel.user,
                           user: _user,
                           news: viewmodel.items[index],
                           screenHeight: screenHeight,

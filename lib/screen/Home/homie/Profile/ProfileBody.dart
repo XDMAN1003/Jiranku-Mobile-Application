@@ -43,7 +43,7 @@ class ProfileBody extends StatelessWidget {
                   title: "Pending News",
                   desc: "Click to check unverified news",
                   length: 3,
-                  onPress: () => _showComingSoon(context),
+                  onPress: () => Navigator.pushNamed(context, '/verifyNewsList'),
                 )
               : SizedBox(
                   height: 0.0,
@@ -121,46 +121,52 @@ class ProfileBody extends StatelessWidget {
                     Row(
                       children: [
                         IconButton(
-                            onPressed: () => ScaffoldMessenger.of(context)
+                            onPressed: () {
+                              Navigator.pop(context); ScaffoldMessenger.of(context)
                                 .showSnackBar(SnackBar(
                                     duration: const Duration(milliseconds: 500),
                                     content: Text(
-                                        'Redirecting... Send Invitation via SMS'))),
+                                        'Redirecting... Send Invitation via SMS')));},
                             icon: Image.asset("asset/profile/chat.png")),
                         IconButton(
-                            onPressed: () => ScaffoldMessenger.of(context)
+                            onPressed: () {
+                              Navigator.pop(context); ScaffoldMessenger.of(context)
                                 .showSnackBar(SnackBar(
                                     duration: const Duration(milliseconds: 500),
                                     content: Text(
-                                        'Copy to clipboard successfully'))),
+                                        'Copy to clipboard successfully')));},
                             icon: Image.asset("asset/profile/clipboard.png")),
                         IconButton(
-                            onPressed: () => ScaffoldMessenger.of(context)
+                            onPressed: () {
+                              Navigator.pop(context); ScaffoldMessenger.of(context)
                                 .showSnackBar(SnackBar(
                                     duration: const Duration(milliseconds: 500),
                                     content: Text(
-                                        'Redirecting... Send Invitation via Facebook'))),
+                                        'Redirecting... Send Invitation via Facebook')));},
                             icon: Image.asset("asset/profile/facebook.png")),
                         IconButton(
-                            onPressed: () => ScaffoldMessenger.of(context)
+                            onPressed: () {
+                              Navigator.pop(context); ScaffoldMessenger.of(context)
                                 .showSnackBar(SnackBar(
                                     duration: const Duration(milliseconds: 500),
                                     content: Text(
-                                        'Redirecting... Send Invitation via Instagram'))),
+                                        'Redirecting... Send Invitation via Instagram')));},
                             icon: Image.asset("asset/profile/instagram.png")),
                         IconButton(
-                            onPressed: () => ScaffoldMessenger.of(context)
+                            onPressed: () {
+                              Navigator.pop(context); ScaffoldMessenger.of(context)
                                 .showSnackBar(SnackBar(
                                     duration: const Duration(milliseconds: 500),
                                     content: Text(
-                                        'Redirecting... Send Invitation via WhatsApp'))),
+                                        'Redirecting... Send Invitation via WhatsApp')));},
                             icon: Image.asset("asset/profile/whatsapp.png")),
                         IconButton(
-                            onPressed: () => ScaffoldMessenger.of(context)
+                            onPressed: () {
+                              Navigator.pop(context); ScaffoldMessenger.of(context)
                                 .showSnackBar(SnackBar(
                                     duration: const Duration(milliseconds: 500),
                                     content: Text(
-                                        'Redirecting... Send Invitation via Wechat'))),
+                                        'Redirecting... Send Invitation via Wechat')));},
                             icon: Image.asset("asset/profile/wechat.png")),
                       ],
                     )

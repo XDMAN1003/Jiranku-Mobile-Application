@@ -28,7 +28,7 @@ class EditProfileBody extends StatelessWidget {
     viewmodel.address = (viewmodel.address == "") ? viewmodel.user.address: viewmodel.address;
     viewmodel.password = (viewmodel.password == "") ? viewmodel.user.password: viewmodel.password;
     viewmodel.identity = (viewmodel.identity == "") ? viewmodel.user.identity: viewmodel.identity;
-    viewmodel.userID = (viewmodel.userID == "") ? viewmodel.user.userID: viewmodel.userID;
+    viewmodel.id = (viewmodel.id == "") ? viewmodel.user.id: viewmodel.id;
     viewmodel.invitationCode = (viewmodel.invitationCode == "") ? viewmodel.user.invitationCode: viewmodel.invitationCode;
     final User? _user = await viewmodel.updateUser();
     if (_user != null) {
@@ -55,6 +55,7 @@ class EditProfileBody extends StatelessWidget {
         child: Center(child: CircularProgressIndicator()),
       ),
       builder: (context, viewmodel, progressBuilder) {
+        print(viewmodel.user);
         //viewmodel.preference = "TTT";
         return SingleChildScrollView(
           child: Column(children: [
@@ -102,7 +103,7 @@ class EditProfileBody extends StatelessWidget {
                 height: 10.0,
               ),
               Text(
-                "${viewmodel.user.userID} | ${viewmodel.user.identity}",
+                "${viewmodel.user.id} | ${viewmodel.user.identity}",
                 style: TextStyle(fontFamily: "Acme"),
               ),
               Container(
@@ -204,40 +205,40 @@ class EditProfileBody extends StatelessWidget {
                       SizedBox(
                         height: 10.0,
                       ),
-                      Text("Field of Interest",
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w500)),
-                      SizedBox(
-                        height: 5.0,
-                      ),
+                      // Text("Field of Interest",
+                      //     style: TextStyle(
+                      //         color: Colors.grey,
+                      //         fontSize: 12.0,
+                      //         fontWeight: FontWeight.w500)),
+                      // SizedBox(
+                      //   height: 5.0,
+                      // ),
 
-                      //["Local Business", "Job Seek", "COVID-19 News", "Property"].map<Text>((e) => Text(e)).toList(),
-                      Row(
-                        children: [
-                          _buildCheckBox(viewmodel, "Local News", 0),
-                          _buildCheckBox(viewmodel, "Job Seek", 1),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          _buildCheckBox(viewmodel, "COVID-19 News", 2),
-                          _buildCheckBox(viewmodel, "Property", 3),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          _buildCheckBox(viewmodel, "Food Shop", 4),
-                          _buildCheckBox(viewmodel, "Seek for Help", 5),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          _buildCheckBox(viewmodel, "Local Business", 6),
-                          _buildCheckBox(viewmodel, "Fashion", 7),
-                        ],
-                      ),
+                      // //["Local Business", "Job Seek", "COVID-19 News", "Property"].map<Text>((e) => Text(e)).toList(),
+                      // Row(
+                      //   children: [
+                      //     _buildCheckBox(viewmodel, "Local News", 0),
+                      //     _buildCheckBox(viewmodel, "Job Seek", 1),
+                      //   ],
+                      // ),
+                      // Row(
+                      //   children: [
+                      //     _buildCheckBox(viewmodel, "COVID-19 News", 2),
+                      //     _buildCheckBox(viewmodel, "Property", 3),
+                      //   ],
+                      // ),
+                      // Row(
+                      //   children: [
+                      //     _buildCheckBox(viewmodel, "Food Shop", 4),
+                      //     _buildCheckBox(viewmodel, "Seek for Help", 5),
+                      //   ],
+                      // ),
+                      // Row(
+                      //   children: [
+                      //     _buildCheckBox(viewmodel, "Local Business", 6),
+                      //     _buildCheckBox(viewmodel, "Fashion", 7),
+                      //   ],
+                      // ),
                       SizedBox(
                         height: 10.0,
                       ),
@@ -296,34 +297,34 @@ class EditProfileBody extends StatelessWidget {
         ));
   }
 
-Expanded _buildCheckBox(viewmodel, label, index) {
-    dynamic user_preference = viewmodel.preference.substring((index), (index + 1));
-    //dynamic initial_preference = viewmodel.user.preference.substring((index), (index + 1));
-    return Expanded(
-      flex: 1,
-      child: Row(
-        children: [
-          //Text(user_preference),
-          Checkbox(
-            value:
-                (user_preference == "T") ,
-            onChanged: (bool? value) {
-              print(user_preference);
-              (value!)
-                  ? viewmodel.preference =
-                      replaceCharAt(viewmodel.preference, index, "T")
-                  : viewmodel.preference =
-                      replaceCharAt(viewmodel.preference, index, "F");
-            },
-          ),
-          Text(
-            "$label",
-            style: TextStyle(color: Colors.black),
-          ),
-        ],
-      ),
-    );
-  }
+// Expanded _buildCheckBox(viewmodel, label, index) {
+//     dynamic user_preference = viewmodel.preference.substring((index), (index + 1));
+//     //dynamic initial_preference = viewmodel.user.preference.substring((index), (index + 1));
+//     return Expanded(
+//       flex: 1,
+//       child: Row(
+//         children: [
+//           //Text(user_preference),
+//           Checkbox(
+//             value:
+//                 (user_preference == "T") ,
+//             onChanged: (bool? value) {
+//               print(user_preference);
+//               (value!)
+//                   ? viewmodel.preference =
+//                       replaceCharAt(viewmodel.preference, index, "T")
+//                   : viewmodel.preference =
+//                       replaceCharAt(viewmodel.preference, index, "F");
+//             },
+//           ),
+//           Text(
+//             "$label",
+//             style: TextStyle(color: Colors.black),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
   
 dynamic _showProfile(context, {viewmodel}) {
     // viewmodel.fullName = (viewmodel.fullName == "") ? viewmodel.user.fullName: viewmodel.fullName;
@@ -351,7 +352,7 @@ dynamic _showProfile(context, {viewmodel}) {
                             )),
                         //borderRadius: BorderRadius.circular(16),
                       ),
-                      height: MediaQuery.of(context).size.height / 4 + 60.0,
+                      height: MediaQuery.of(context).size.height / 4 + 40.0,
                       decoration: BoxDecoration(boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.1),
@@ -484,106 +485,106 @@ dynamic _showProfile(context, {viewmodel}) {
                             label: "Preference",
                             size: 12.0,
                             color: Colors.grey[600]),
-                        Row(
-                          children: [
-                            (viewmodel.preference.substring((0), (0 + 1)) ==
-                                    "T")
-                                ? Icon(
-                                    Icons.article,
-                                    size: 30.0,
-                                    color: Colors.grey[800],
-                                  )
-                                : Icon(
-                                    Icons.article_outlined,
-                                    size: 30.0,
-                                    color: Colors.grey[400],
-                                  ),
-                            (viewmodel.preference.substring((1), (1 + 1)) ==
-                                    "T")
-                                ? Icon(
-                                    Icons.work,
-                                    size: 30.0,
-                                    color: Colors.grey[800],
-                                  )
-                                : Icon(
-                                    Icons.work_outlined,
-                                    size: 30.0,
-                                    color: Colors.grey[400],
-                                  ),
-                            (viewmodel.preference.substring((2), (2 + 1)) ==
-                                    "T")
-                                ? Icon(
-                                    Icons.coronavirus,
-                                    size: 30.0,
-                                    color: Colors.grey[800],
-                                  )
-                                : Icon(
-                                    Icons.coronavirus_outlined,
-                                    size: 30.0,
-                                    color: Colors.grey[400],
-                                  ),
-                            (viewmodel.preference.substring((3), (3 + 1)) ==
-                                    "T")
-                                ? Icon(
-                                    Icons.home,
-                                    size: 30.0,
-                                    color: Colors.grey[800],
-                                  )
-                                : Icon(
-                                    Icons.home_outlined,
-                                    size: 30.0,
-                                    color: Colors.grey[400],
-                                  ),
-                            (viewmodel.preference.substring((4), (4 + 1)) ==
-                                    "T")
-                                ? Icon(
-                                    Icons.restaurant_menu,
-                                    size: 30.0,
-                                    color: Colors.grey[800],
-                                  )
-                                : Icon(
-                                    Icons.restaurant_menu_outlined,
-                                    size: 30.0,
-                                    color: Colors.grey[400],
-                                  ),
-                            (viewmodel.preference.substring((5), (5 + 1)) ==
-                                    "T")
-                                ? Icon(
-                                    Icons.handyman,
-                                    size: 30.0,
-                                    color: Colors.grey[800],
-                                  )
-                                : Icon(
-                                    Icons.handyman_outlined,
-                                    size: 30.0,
-                                    color: Colors.grey[400],
-                                  ),
-                            (viewmodel.preference.substring((6), (6 + 1)) ==
-                                    "T")
-                                ? Icon(
-                                    Icons.business,
-                                    size: 30.0,
-                                    color: Colors.grey[800],
-                                  )
-                                : Icon(
-                                    Icons.business_outlined,
-                                    size: 30.0,
-                                    color: Colors.grey[400],
-                                  ),
-                            (viewmodel.preference.substring((7), (7 + 1)) ==
-                                    "T")
-                                ? Icon(
-                                    Icons.checkroom,
-                                    size: 30.0,
-                                    color: Colors.grey[800],
-                                  )
-                                : Icon(
-                                    Icons.checkroom_outlined,
-                                    size: 30.0,
-                                    color: Colors.grey[400],
-                                  ),
-                          ],
-                        ),
+                        // Row(
+                        //   children: [
+                        //     (viewmodel.preference.substring((0), (0 + 1)) ==
+                        //             "T")
+                        //         ? Icon(
+                        //             Icons.article,
+                        //             size: 30.0,
+                        //             color: Colors.grey[800],
+                        //           )
+                        //         : Icon(
+                        //             Icons.article_outlined,
+                        //             size: 30.0,
+                        //             color: Colors.grey[400],
+                        //           ),
+                        //     (viewmodel.preference.substring((1), (1 + 1)) ==
+                        //             "T")
+                        //         ? Icon(
+                        //             Icons.work,
+                        //             size: 30.0,
+                        //             color: Colors.grey[800],
+                        //           )
+                        //         : Icon(
+                        //             Icons.work_outlined,
+                        //             size: 30.0,
+                        //             color: Colors.grey[400],
+                        //           ),
+                        //     (viewmodel.preference.substring((2), (2 + 1)) ==
+                        //             "T")
+                        //         ? Icon(
+                        //             Icons.coronavirus,
+                        //             size: 30.0,
+                        //             color: Colors.grey[800],
+                        //           )
+                        //         : Icon(
+                        //             Icons.coronavirus_outlined,
+                        //             size: 30.0,
+                        //             color: Colors.grey[400],
+                        //           ),
+                        //     (viewmodel.preference.substring((3), (3 + 1)) ==
+                        //             "T")
+                        //         ? Icon(
+                        //             Icons.home,
+                        //             size: 30.0,
+                        //             color: Colors.grey[800],
+                        //           )
+                        //         : Icon(
+                        //             Icons.home_outlined,
+                        //             size: 30.0,
+                        //             color: Colors.grey[400],
+                        //           ),
+                        //     (viewmodel.preference.substring((4), (4 + 1)) ==
+                        //             "T")
+                        //         ? Icon(
+                        //             Icons.restaurant_menu,
+                        //             size: 30.0,
+                        //             color: Colors.grey[800],
+                        //           )
+                        //         : Icon(
+                        //             Icons.restaurant_menu_outlined,
+                        //             size: 30.0,
+                        //             color: Colors.grey[400],
+                        //           ),
+                        //     (viewmodel.preference.substring((5), (5 + 1)) ==
+                        //             "T")
+                        //         ? Icon(
+                        //             Icons.handyman,
+                        //             size: 30.0,
+                        //             color: Colors.grey[800],
+                        //           )
+                        //         : Icon(
+                        //             Icons.handyman_outlined,
+                        //             size: 30.0,
+                        //             color: Colors.grey[400],
+                        //           ),
+                        //     (viewmodel.preference.substring((6), (6 + 1)) ==
+                        //             "T")
+                        //         ? Icon(
+                        //             Icons.business,
+                        //             size: 30.0,
+                        //             color: Colors.grey[800],
+                        //           )
+                        //         : Icon(
+                        //             Icons.business_outlined,
+                        //             size: 30.0,
+                        //             color: Colors.grey[400],
+                        //           ),
+                        //     (viewmodel.preference.substring((7), (7 + 1)) ==
+                        //             "T")
+                        //         ? Icon(
+                        //             Icons.checkroom,
+                        //             size: 30.0,
+                        //             color: Colors.grey[800],
+                        //           )
+                        //         : Icon(
+                        //             Icons.checkroom_outlined,
+                        //             size: 30.0,
+                        //             color: Colors.grey[400],
+                        //           ),
+                        //   ],
+                        // ),
                         SizedBox(
                           height: 5.0,
                         ),

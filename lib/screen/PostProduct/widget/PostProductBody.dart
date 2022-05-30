@@ -308,7 +308,7 @@ class PostProductBody extends StatelessWidget {
                                 onPress: () async {
                                   if (viewmodel.description != "" &&
                                       viewmodel.photos != "") {
-                                    viewmodel.postID = Uuid().v1();
+                                    viewmodel.id = Uuid().v1();
                                     dynamic result =
                                         await viewmodel.postProduct();
                                     if (result != null) {

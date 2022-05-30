@@ -21,7 +21,7 @@ class AuthServiceRest implements AuthService{
       var json = await rest.get('user?email=$email&password=$password');
       print(json);
       final _result = User.fromJson(json[0]);
-      print(_result);
+      print(_result.id);
       return _result;
     } catch(e) {
       return null;
@@ -37,7 +37,7 @@ class AuthServiceRest implements AuthService{
 
   Future<User?> updateUser({required User user}) async {
     try {
-      final json = await rest.patch('user/${user.userID}',data: user);
+      final json = await rest.put('user/${user.id}',data: user);
       final _result = User.fromJson(json);
       return _result;
     } catch (e) {

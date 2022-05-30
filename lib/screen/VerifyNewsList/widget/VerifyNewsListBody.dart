@@ -25,6 +25,12 @@ class VerifyNewListBody extends StatelessWidget {
           return ListView.builder(
             itemCount: unverifiedNews.length,
             itemBuilder: (BuildContext context, int index) {
+              int maxLengthDesc =
+                  (unverifiedNews[index].description.length > 80)
+                      ? 80
+                      : unverifiedNews[index].description.length;
+
+              print(index);
               return InkWell(
                 onTap: () async {
                   final result = await Navigator.push(
@@ -87,7 +93,7 @@ class VerifyNewListBody extends StatelessWidget {
                                       color: Colors.grey[800]),
                                 ),
                                 Text(
-                                    "${unverifiedNews[index].description.substring(0, 80)} ...",
+                                    "${unverifiedNews[index].description.substring(0, maxLengthDesc)} ...",
                                     textAlign: TextAlign.justify,
                                     style: TextStyle(
                                         fontFamily: "Acme",
@@ -115,11 +121,15 @@ class VerifyNewListBody extends StatelessWidget {
                                   onPressed: () => ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         SnackBar(
-                                          backgroundColor: Colors.amber,
+                                            backgroundColor: Colors.amber,
                                             duration: const Duration(
                                                 milliseconds: 500),
                                             content: Text(
-                                                "Waiting for the verification!",style: TextStyle(color: Colors.grey[800], fontWeight: FontWeight.bold))),
+                                                "Waiting for the verification!",
+                                                style: TextStyle(
+                                                    color: Colors.grey[800],
+                                                    fontWeight:
+                                                        FontWeight.bold))),
                                       ),
                                   icon: Image.asset("asset/react/wait.png"))
                               : (unverifiedNews[index].status == "Fake News!!!")
@@ -128,11 +138,17 @@ class VerifyNewListBody extends StatelessWidget {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
-                                              backgroundColor: Colors.redAccent,
+                                                backgroundColor:
+                                                    Colors.redAccent,
                                                 duration: const Duration(
                                                     milliseconds: 600),
                                                 content: Text(
-                                                    "Oh no! It is FAKE.",style: TextStyle(color:Color(0XFFFFFFF0), fontWeight: FontWeight.bold))),
+                                                    "Oh no! It is FAKE.",
+                                                    style: TextStyle(
+                                                        color:
+                                                            Color(0XFFFFFFF0),
+                                                        fontWeight:
+                                                            FontWeight.bold))),
                                           ),
                                       icon: Image.asset("asset/react/fake.png"))
                                   : IconButton(
@@ -140,11 +156,17 @@ class VerifyNewListBody extends StatelessWidget {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
-                                              backgroundColor: Colors.greenAccent,
+                                                backgroundColor:
+                                                    Colors.greenAccent,
                                                 duration: const Duration(
                                                     milliseconds: 500),
                                                 content: Text(
-                                                    "Great! It is a reliable news.",style: TextStyle(color: Colors.grey[800], fontWeight: FontWeight.bold),)),
+                                                  "Great! It is a reliable news.",
+                                                  style: TextStyle(
+                                                      color: Colors.grey[800],
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                )),
                                           ),
                                       icon:
                                           Image.asset("asset/react/real.png")),

@@ -9,7 +9,7 @@ class User {
   String _preference;
   String _races;
   String _username;
-  String _userID;
+  String _id;
 
   get address => _address;
   set address(value) => _address = value;
@@ -41,8 +41,8 @@ class User {
   get username => _username;
   set username(value) => _username = value;
 
-  get userID => _userID;
-  set userID(value) => _userID = value;
+  get id => _id;
+  set id(value) => _id = value;
 
   User({  
   String address= "",
@@ -55,7 +55,7 @@ class User {
   String preference = "FFFFFFFF",
   String races= "",
   String username= "",
-  String userID= "",}):
+  String id= "",}):
    _address= address,
   _email= email,
   _fullName= fullName,
@@ -66,7 +66,7 @@ class User {
   _preference = preference ,
   _races= races,
   _username= username,
-  _userID= userID;
+  _id= id;
 
   User.copy(User from): this(
     address: from.address,
@@ -79,7 +79,7 @@ class User {
     preference: from.preference ,
     races: from.races,
     username: from.username,
-    userID: from.userID 
+    id: from.id 
   ); 
 
   User.fromJson(Map<String, dynamic> json):
@@ -94,7 +94,7 @@ class User {
     preference: json["preference "] ?? "",
     races: json["races"] ?? "",
     username: json["username"] ?? "",
-    userID: json["userID"] ?? "",
+    id: json["id"] ?? "",
   );
 
   Map<String, dynamic> toJson() => {
@@ -105,10 +105,10 @@ class User {
     'identity': identity,
     'invitationCode': invitationCode,
     'password': password,
-    'preference': preference ,
+    'preference': preference,
     'races': races,
     'username': username,
-    'userID': userID 
+    'id': id 
   };
 
 }

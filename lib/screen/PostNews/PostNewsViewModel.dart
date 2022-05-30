@@ -27,12 +27,12 @@ class PostNewsViewModel extends Viewmodel {
   }
   get status => _post.status;
 
-  set postID(val) {
+  set id(val) {
     turnBusy();
-    _post.postID = val;
+    _post.id = val;
     turnIdle();
   }
-  get postID => _post.postID;
+  get id => _post.id;
 
   set photos(val) {
     turnBusy();
@@ -58,9 +58,9 @@ class PostNewsViewModel extends Viewmodel {
   get location => _post.location;
 
   Future<News?> postNews() async {
-    _post.postAuthorID = user.userID;
+    _post.postAuthorID = user.id;
     _post.publishDateTime = new DateTime.now();
-    //_post.postID = uuid.v1();
+    //_post.id = uuid.v1();
     turnBusy();
     //final User? _result = await _service.registration(user: _user);
     final News _result = await _service.addNews(_post);
@@ -71,7 +71,7 @@ class PostNewsViewModel extends Viewmodel {
     return _result;
   }
 
-  // String _postID;
+  // String _id;
   // String _postAuthorID;
   // String _title;
   // String _description;

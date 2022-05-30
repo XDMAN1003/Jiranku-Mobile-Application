@@ -2,6 +2,7 @@ import 'package:fyp_project_v2/app/dependencies.dart';
 import 'package:fyp_project_v2/models/user.dart';
 import 'package:fyp_project_v2/screen/viewmodel.dart';
 import 'package:fyp_project_v2/services/auth/auth_service.dart';
+import 'package:uuid/uuid.dart';
 
 class RegisterViewModel extends Viewmodel {
   AuthService get _service => dependency();
@@ -90,7 +91,10 @@ class RegisterViewModel extends Viewmodel {
   set user(value) => _user = user;
 
   Future<User?> registration() async {
+    
     turnBusy();
+    _user.identity = "SP Resident";
+    _user.id = Uuid().v4();
     final User? _result = await _service.registration(user: _user);
     if (_result != null) {
       _user = _result;

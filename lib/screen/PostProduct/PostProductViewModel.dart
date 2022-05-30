@@ -20,8 +20,8 @@ class PostProductViewModel extends Viewmodel {
      turnIdle();
   }
 
-  get postID => _product.postID;
-  set postID(value) => update( () async=> _product.postID = value) ;
+  get id => _product.id;
+  set id(value) => update( () async=> _product.id = value) ;
 
   get location => _product.location;
   set location(value) =>  update( () async=> _product.location = value);
@@ -46,9 +46,9 @@ class PostProductViewModel extends Viewmodel {
   set price(value) =>  update(() async=> _product.price = value);
 
   Future<Product?> postProduct() async {
-    _product.postAuthorID = user.userID;
+    _product.postAuthorID = user.id;
     _product.publishDateTime = new DateTime.now();
-    //_post.postID = uuid.v1();
+    //_post.id = uuid.v1();
     turnBusy();
     //final User? _result = await _service.registration(user: _user);
     final Product _result = await _service.addProduct(_product);
