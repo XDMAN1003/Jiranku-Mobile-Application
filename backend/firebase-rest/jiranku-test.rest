@@ -1,0 +1,118 @@
+##############################################################
+# Mobile Application Programming (SCSJ3623)
+# Semester 2, 2019/2020
+##############################################################
+
+# REST API Server on Local Firebase
+# @baseUrl = http://localhost:5001/jumail-backend-firebase-rest/us-central1/api
+
+# REST API Server on Live Firebase
+//@baseUrl = https://us-central1-jumail-backend-firebase-rest.cloudfunctions.net/api
+@baseUrl = http://localhost:5001/jiranku-application/us-central1/api
+//@baseUrl = https://us-central1-nodewithfirebase-student.cloudfunctions.net/api
+
+### Getting the list of users
+GET {{baseUrl}}/user
+
+### Login
+GET {{baseUrl}}/user/login/xdman1221@gmail.com/123456
+
+###  Getting a user of given id
+GET {{baseUrl}}/user/vOS82i1nDolTjdsAcpqM
+
+###  Create a new user
+POST {{baseUrl}}/user
+Content-Type: application/json
+
+{
+    "address": "Cinta Sayang Resort Villa",
+    "email": "anya-forger@gmail.com",
+    "fullName": "Anya Forger",
+    "gender": "Female",
+    "identity": "SP Resident",
+    "invitationCode": "6263cdd8-33a8-4a74-a9ac-fea307da387d",
+    "password": "123456",
+    "preference": "TFTFTFTF",
+    "races": "Others",
+    "username": "Anya💕"
+}
+
+
+
+### Update the status of a given user (whether is SP Residents or Admin)
+PATCH {{baseUrl}}/user/vOS82i1nDolTjdsAcpqM
+Content-Type: application/json
+
+{
+    "identity": "Admin"
+}
+
+
+### Replace the entire fields of a given user
+PUT {{baseUrl}}/user/vOS82i1nDolTjdsAcpqM
+Content-Type: application/json
+
+{
+    "address": "Cinta Sayang Resort Villa",
+    "email": "anya-forger@gmail.com",
+    "fullName": "Moma Water",
+    "gender": "Female",
+    "identity": "SP Resident",
+    "invitationCode": "6263cdd8-33a8-4a74-a9ac-fea307da387d",
+    "password": "123456",
+    "preference": "TFTFTFTF",
+    "races": "Others",
+    "username": "Anya💕"
+}
+
+### Deleting a given user
+DELETE {{baseUrl}}/user/vOS82i1nDolTjdsAcpqM
+
+### Getting the news 
+GET {{baseUrl}}/news
+
+### Create a new News Post 
+POST {{baseUrl}}/news
+Content-Type: application/json
+
+{
+      "postAuthorID": "db70f5ac-39c5-4e30-b2ab-90298bf71680",
+      "location": "Bukit Bayan",
+      "description": "Hahaha",
+      "status": "Verified",
+      "photos": "sample6.jpg",
+      "reference": "Berita Harian",
+      "publishDateTime": "2022-05-29 15:20:21"
+}
+
+### Update the News Details
+PUT {{baseUrl}}/news/nNSugPsuXzEoIO7pYtd0
+Content-Type: application/json
+
+{
+      "postAuthorID": "db70f5ac-39c5-4e30-b2ab-90298bf71680",
+      "location": "Bukit Bayan",
+      "description": "Hahaha",
+      "status": "Verified",
+      "photos": "sample6.jpg",
+      "reference": "Berita Harian",
+      "publishDateTime": "2022-05-29 15:20:21"
+}
+###Get Product
+GET {{baseUrl}}/product
+
+### Create a new Product 
+POST {{baseUrl}}/product
+Content-Type: application/json
+
+{
+      "postAuthorID": "3a82ac64-340b-4a2d-8c39-4957f0d401cf",
+      "location": "Taman Orkid",
+      "description": "Mammia",
+      "photos": "sample (1).jpg",
+      "contactNo": "",
+      "price": "50.08",
+      "stock": "10",
+      "publishDateTime": "2022-05-29 15:30:00"
+}
+
